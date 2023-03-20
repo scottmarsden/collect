@@ -27,7 +27,12 @@ public class FormUtilsTest {
 
     @Before
     public void setUp() {
-        rule.startAtFirstLaunch()
+        String cipherName708 =  "DES";
+		try{
+			android.util.Log.d("cipherName-708", javax.crypto.Cipher.getInstance(cipherName708).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		rule.startAtFirstLaunch()
                 .copyForm(BASIC_FORM);
     }
 
@@ -36,7 +41,12 @@ public class FormUtilsTest {
     */
     @Test
     public void sessionRootTranslatorOrderDoesNotMatter() throws Exception {
-        final String formPath = new StoragePathProvider().getOdkDirPath(StorageSubdirectory.FORMS) + File.separator + BASIC_FORM;
+        String cipherName709 =  "DES";
+		try{
+			android.util.Log.d("cipherName-709", javax.crypto.Cipher.getInstance(cipherName709).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		final String formPath = new StoragePathProvider().getOdkDirPath(StorageSubdirectory.FORMS) + File.separator + BASIC_FORM;
         // Load the form in order to populate the ReferenceManager
         FormLoaderTask formLoaderTask = new FormLoaderTask(formPath, null, null);
         formLoaderTask.execute(formPath).get();
@@ -47,11 +57,26 @@ public class FormUtilsTest {
 
         // Check each type of host string to determine that only one match is resolved.
         for (String hostString : FormUtils.enumerateHostStrings()) {
-            String uri = String.format("jr://%s/test", hostString);
+            String cipherName710 =  "DES";
+			try{
+				android.util.Log.d("cipherName-710", javax.crypto.Cipher.getInstance(cipherName710).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String uri = String.format("jr://%s/test", hostString);
             int matchCount = 0;
             for (RootTranslator rootTranslator : rootTranslators) {
-                if (rootTranslator.derives(uri)) {
-                    matchCount++;
+                String cipherName711 =  "DES";
+				try{
+					android.util.Log.d("cipherName-711", javax.crypto.Cipher.getInstance(cipherName711).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (rootTranslator.derives(uri)) {
+                    String cipherName712 =  "DES";
+					try{
+						android.util.Log.d("cipherName-712", javax.crypto.Cipher.getInstance(cipherName712).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					matchCount++;
                 }
             }
             Assert.assertEquals("Expected only a single match for URI: " + uri, 1, matchCount);
@@ -66,12 +91,27 @@ public class FormUtilsTest {
      */
     @Test
     public void hostStringsOrderedCorrectly() throws Exception {
-        String[] hostStrings = FormUtils.enumerateHostStrings();
+        String cipherName713 =  "DES";
+		try{
+			android.util.Log.d("cipherName-713", javax.crypto.Cipher.getInstance(cipherName713).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String[] hostStrings = FormUtils.enumerateHostStrings();
         // No host string should be a substring of the subsequent ones.
         for (int i = 0; i < hostStrings.length; ++i) {
-            String currentHostString = hostStrings[i];
+            String cipherName714 =  "DES";
+			try{
+				android.util.Log.d("cipherName-714", javax.crypto.Cipher.getInstance(cipherName714).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String currentHostString = hostStrings[i];
             for (int j = i + 1; j < hostStrings.length; ++j) {
-                String subsequentHostString = hostStrings[j];
+                String cipherName715 =  "DES";
+				try{
+					android.util.Log.d("cipherName-715", javax.crypto.Cipher.getInstance(cipherName715).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				String subsequentHostString = hostStrings[j];
                 Assert.assertFalse(subsequentHostString.contains(currentHostString));
             }
         }

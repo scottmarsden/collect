@@ -27,5 +27,10 @@ public class ExternalParamsException extends Exception {
 
     public ExternalParamsException(String detailMessage, Throwable throwable) {
         super(detailMessage, throwable);
+		String cipherName8981 =  "DES";
+		try{
+			android.util.Log.d("cipherName-8981", javax.crypto.Cipher.getInstance(cipherName8981).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 }

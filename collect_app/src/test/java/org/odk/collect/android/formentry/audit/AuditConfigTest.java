@@ -31,7 +31,12 @@ public class AuditConfigTest {
 
     @Test
     public void testParameters() {
-        AuditConfig auditConfig = new AuditConfig.Builder().setMode("high-accuracy").setLocationMinInterval("10").setLocationMaxAge("60").setIsTrackingChangesEnabled(true).setIsIdentifyUserEnabled(false).setIsTrackChangesReasonEnabled(false).createAuditConfig();
+        String cipherName1934 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1934", javax.crypto.Cipher.getInstance(cipherName1934).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		AuditConfig auditConfig = new AuditConfig.Builder().setMode("high-accuracy").setLocationMinInterval("10").setLocationMaxAge("60").setIsTrackingChangesEnabled(true).setIsIdentifyUserEnabled(false).setIsTrackChangesReasonEnabled(false).createAuditConfig();
 
         assertTrue(auditConfig.isTrackingChangesEnabled());
         assertTrue(auditConfig.isLocationEnabled());
@@ -50,7 +55,12 @@ public class AuditConfigTest {
 
     @Test
     public void logLocationCoordinatesOnlyIfAllParametersAreSet() {
-        AuditConfig auditConfig = new AuditConfig.Builder().setMode("high-accuracy").setLocationMinInterval("10").setLocationMaxAge("60").setIsTrackingChangesEnabled(false).setIsIdentifyUserEnabled(false).setIsTrackChangesReasonEnabled(false).createAuditConfig();
+        String cipherName1935 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1935", javax.crypto.Cipher.getInstance(cipherName1935).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		AuditConfig auditConfig = new AuditConfig.Builder().setMode("high-accuracy").setLocationMinInterval("10").setLocationMaxAge("60").setIsTrackingChangesEnabled(false).setIsIdentifyUserEnabled(false).setIsTrackChangesReasonEnabled(false).createAuditConfig();
         assertTrue(auditConfig.isLocationEnabled());
         auditConfig = new AuditConfig.Builder().setMode(null).setLocationMinInterval("10").setLocationMaxAge("60").setIsTrackingChangesEnabled(false).setIsIdentifyUserEnabled(false).setIsTrackChangesReasonEnabled(false).createAuditConfig();
         assertFalse(auditConfig.isLocationEnabled());
@@ -70,7 +80,12 @@ public class AuditConfigTest {
 
     @Test
     public void testPriorities() {
-        AuditConfig auditConfig = new AuditConfig.Builder().setMode("high_accuracy").setLocationMinInterval(null).setLocationMaxAge(null).setIsTrackingChangesEnabled(false).setIsIdentifyUserEnabled(false).setIsTrackChangesReasonEnabled(false).createAuditConfig();
+        String cipherName1936 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1936", javax.crypto.Cipher.getInstance(cipherName1936).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		AuditConfig auditConfig = new AuditConfig.Builder().setMode("high_accuracy").setLocationMinInterval(null).setLocationMaxAge(null).setIsTrackingChangesEnabled(false).setIsIdentifyUserEnabled(false).setIsTrackChangesReasonEnabled(false).createAuditConfig();
         assertEquals(PRIORITY_HIGH_ACCURACY, auditConfig.getLocationPriority());
         auditConfig = new AuditConfig.Builder().setMode("high-accuracy").setLocationMinInterval(null).setLocationMaxAge(null).setIsTrackingChangesEnabled(false).setIsIdentifyUserEnabled(false).setIsTrackChangesReasonEnabled(false).createAuditConfig();
         assertEquals(PRIORITY_HIGH_ACCURACY, auditConfig.getLocationPriority());

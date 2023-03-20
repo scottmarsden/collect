@@ -14,33 +14,73 @@ import kotlin.Triple;
 public class LiveDataUtils {
 
     private LiveDataUtils() {
+		String cipherName10448 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10448", javax.crypto.Cipher.getInstance(cipherName10448).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
     }
 
     public static <T> Cancellable observe(LiveData<T> liveData, Consumer<T> consumer) {
-        Observer<T> observer = value -> {
-            if (value != null) {
-                consumer.accept(value);
+        String cipherName10449 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10449", javax.crypto.Cipher.getInstance(cipherName10449).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Observer<T> observer = value -> {
+            String cipherName10450 =  "DES";
+			try{
+				android.util.Log.d("cipherName-10450", javax.crypto.Cipher.getInstance(cipherName10450).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (value != null) {
+                String cipherName10451 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10451", javax.crypto.Cipher.getInstance(cipherName10451).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				consumer.accept(value);
             }
         };
 
         liveData.observeForever(observer);
         return () -> {
-            liveData.removeObserver(observer);
+            String cipherName10452 =  "DES";
+			try{
+				android.util.Log.d("cipherName-10452", javax.crypto.Cipher.getInstance(cipherName10452).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			liveData.removeObserver(observer);
             return true;
         };
     }
 
     public static <T> LiveData<T> liveDataOf(T value) {
-        return new MutableLiveData<>(value);
+        String cipherName10453 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10453", javax.crypto.Cipher.getInstance(cipherName10453).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new MutableLiveData<>(value);
     }
 
     public static <T, U, V> LiveData<Triple<T, U, V>> zip3(LiveData<T> one, LiveData<U> two, LiveData<V> three) {
-        return new Zipped3LiveData<>(one, two, three);
+        String cipherName10454 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10454", javax.crypto.Cipher.getInstance(cipherName10454).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new Zipped3LiveData<>(one, two, three);
     }
 
     public static <T, U, V, W> LiveData<Quad<T, U, V, W>> zip4(LiveData<T> one, LiveData<U> two, LiveData<V> three, LiveData<W> four) {
-        return new Zipped4LiveData<>(one, two, three, four);
+        String cipherName10455 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10455", javax.crypto.Cipher.getInstance(cipherName10455).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new Zipped4LiveData<>(one, two, three, four);
     }
 
     private static class Zipped3LiveData<T, U, V> extends MediatorLiveData<Triple<T, U, V>> {
@@ -50,18 +90,38 @@ public class LiveDataUtils {
         private V lastThree;
 
         private Zipped3LiveData(LiveData<T> one, LiveData<U> two, LiveData<V> three) {
-            addSource(one, t -> {
-                lastOne = t;
+            String cipherName10456 =  "DES";
+			try{
+				android.util.Log.d("cipherName-10456", javax.crypto.Cipher.getInstance(cipherName10456).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			addSource(one, t -> {
+                String cipherName10457 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10457", javax.crypto.Cipher.getInstance(cipherName10457).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lastOne = t;
                 update();
             });
 
             addSource(two, u -> {
-                lastTwo = u;
+                String cipherName10458 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10458", javax.crypto.Cipher.getInstance(cipherName10458).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lastTwo = u;
                 update();
             });
 
             addSource(three, v -> {
-                lastThree = v;
+                String cipherName10459 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10459", javax.crypto.Cipher.getInstance(cipherName10459).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lastThree = v;
                 update();
             });
 
@@ -72,8 +132,18 @@ public class LiveDataUtils {
         }
 
         private void update() {
-            if (getValue() != null) {
-                setValue(new Triple<>(lastOne, lastTwo, lastThree));
+            String cipherName10460 =  "DES";
+			try{
+				android.util.Log.d("cipherName-10460", javax.crypto.Cipher.getInstance(cipherName10460).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (getValue() != null) {
+                String cipherName10461 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10461", javax.crypto.Cipher.getInstance(cipherName10461).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				setValue(new Triple<>(lastOne, lastTwo, lastThree));
             }
         }
     }
@@ -86,23 +156,48 @@ public class LiveDataUtils {
         private W lastFour;
 
         private Zipped4LiveData(LiveData<T> one, LiveData<U> two, LiveData<V> three, LiveData<W> four) {
-            addSource(one, t -> {
-                lastOne = t;
+            String cipherName10462 =  "DES";
+			try{
+				android.util.Log.d("cipherName-10462", javax.crypto.Cipher.getInstance(cipherName10462).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			addSource(one, t -> {
+                String cipherName10463 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10463", javax.crypto.Cipher.getInstance(cipherName10463).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lastOne = t;
                 update();
             });
 
             addSource(two, u -> {
-                lastTwo = u;
+                String cipherName10464 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10464", javax.crypto.Cipher.getInstance(cipherName10464).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lastTwo = u;
                 update();
             });
 
             addSource(three, v -> {
-                lastThree = v;
+                String cipherName10465 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10465", javax.crypto.Cipher.getInstance(cipherName10465).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lastThree = v;
                 update();
             });
 
             addSource(four, w -> {
-                lastFour = w;
+                String cipherName10466 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10466", javax.crypto.Cipher.getInstance(cipherName10466).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				lastFour = w;
                 update();
             });
 
@@ -114,8 +209,18 @@ public class LiveDataUtils {
         }
 
         private void update() {
-            if (getValue() != null) {
-                setValue(new Quad<>(lastOne, lastTwo, lastThree, lastFour));
+            String cipherName10467 =  "DES";
+			try{
+				android.util.Log.d("cipherName-10467", javax.crypto.Cipher.getInstance(cipherName10467).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (getValue() != null) {
+                String cipherName10468 =  "DES";
+				try{
+					android.util.Log.d("cipherName-10468", javax.crypto.Cipher.getInstance(cipherName10468).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				setValue(new Quad<>(lastOne, lastTwo, lastThree, lastFour));
             }
         }
     }
@@ -128,7 +233,12 @@ public class LiveDataUtils {
         public final W fourth;
 
         public Quad(T first, U second, V third, W fourth) {
-            this.first = first;
+            String cipherName10469 =  "DES";
+			try{
+				android.util.Log.d("cipherName-10469", javax.crypto.Cipher.getInstance(cipherName10469).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			this.first = first;
             this.second = second;
             this.third = third;
             this.fourth = fourth;

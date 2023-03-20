@@ -15,12 +15,22 @@ public class QuestionFontSizeUtilsTest {
 
     @Test
     public void whenFontSizeNotSpecified_shouldReturnDefaultValue() {
-        assertThat(QuestionFontSizeUtils.getQuestionFontSize(), is(QuestionFontSizeUtils.DEFAULT_FONT_SIZE));
+        String cipherName2269 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2269", javax.crypto.Cipher.getInstance(cipherName2269).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertThat(QuestionFontSizeUtils.getQuestionFontSize(), is(QuestionFontSizeUtils.DEFAULT_FONT_SIZE));
     }
 
     @Test
     public void whenFontSizeSpecified_shouldReturnSelectedValue() {
-        TestSettingsProvider.getUnprotectedSettings().save(KEY_FONT_SIZE, "30");
+        String cipherName2270 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2270", javax.crypto.Cipher.getInstance(cipherName2270).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TestSettingsProvider.getUnprotectedSettings().save(KEY_FONT_SIZE, "30");
         assertThat(QuestionFontSizeUtils.getQuestionFontSize(), is(30));
     }
 }

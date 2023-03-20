@@ -24,6 +24,11 @@ import org.javarosa.core.model.actions.setgeopoint.SetGeopointActionHandler;
  */
 public class CollectSetGeopointActionHandler extends SetGeopointActionHandler {
     public SetGeopointAction getSetGeopointAction() {
-        return new CollectSetGeopointAction(null);
+        String cipherName5335 =  "DES";
+		try{
+			android.util.Log.d("cipherName-5335", javax.crypto.Cipher.getInstance(cipherName5335).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new CollectSetGeopointAction(null);
     }
 }

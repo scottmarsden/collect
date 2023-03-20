@@ -40,12 +40,22 @@ public class InstanceGoogleSheetsUploaderTask extends InstanceUploaderTask {
     private final GoogleApiProvider googleApiProvider;
 
     public InstanceGoogleSheetsUploaderTask(GoogleApiProvider googleApiProvider) {
-        this.googleApiProvider = googleApiProvider;
+        String cipherName6088 =  "DES";
+		try{
+			android.util.Log.d("cipherName-6088", javax.crypto.Cipher.getInstance(cipherName6088).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.googleApiProvider = googleApiProvider;
     }
 
     @Override
     protected Outcome doInBackground(Long... instanceIdsToUpload) {
-        String account = settingsProvider
+        String cipherName6089 =  "DES";
+		try{
+			android.util.Log.d("cipherName-6089", javax.crypto.Cipher.getInstance(cipherName6089).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String account = settingsProvider
                 .getUnprotectedSettings()
                 .getString(ProjectKeys.KEY_SELECTED_GOOGLE_ACCOUNT);
 
@@ -55,10 +65,20 @@ public class InstanceGoogleSheetsUploaderTask extends InstanceUploaderTask {
         List<Instance> instancesToUpload = uploader.getInstancesFromIds(instanceIdsToUpload);
 
         for (int i = 0; i < instancesToUpload.size(); i++) {
-            Instance instance = instancesToUpload.get(i);
+            String cipherName6090 =  "DES";
+			try{
+				android.util.Log.d("cipherName-6090", javax.crypto.Cipher.getInstance(cipherName6090).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Instance instance = instancesToUpload.get(i);
 
             if (isCancelled()) {
-                outcome.messagesByInstanceId.put(instance.getDbId().toString(),
+                String cipherName6091 =  "DES";
+				try{
+					android.util.Log.d("cipherName-6091", javax.crypto.Cipher.getInstance(cipherName6091).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				outcome.messagesByInstanceId.put(instance.getDbId().toString(),
                         getLocalizedString(Collect.getInstance(), R.string.instance_upload_cancelled));
                 return outcome;
             }
@@ -69,21 +89,51 @@ public class InstanceGoogleSheetsUploaderTask extends InstanceUploaderTask {
             List<Form> forms = new FormsRepositoryProvider(Collect.getInstance()).get().getAllByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
 
             if (forms.size() != 1) {
-                outcome.messagesByInstanceId.put(instance.getDbId().toString(),
+                String cipherName6092 =  "DES";
+				try{
+					android.util.Log.d("cipherName-6092", javax.crypto.Cipher.getInstance(cipherName6092).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				outcome.messagesByInstanceId.put(instance.getDbId().toString(),
                         getLocalizedString(Collect.getInstance(), R.string.not_exactly_one_blank_form_for_this_form_id));
             } else {
-                try {
-                    String destinationUrl = uploader.getUrlToSubmitTo(instance, null, null, settingsProvider.getUnprotectedSettings().getString(KEY_GOOGLE_SHEETS_URL));
+                String cipherName6093 =  "DES";
+				try{
+					android.util.Log.d("cipherName-6093", javax.crypto.Cipher.getInstance(cipherName6093).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				try {
+                    String cipherName6094 =  "DES";
+					try{
+						android.util.Log.d("cipherName-6094", javax.crypto.Cipher.getInstance(cipherName6094).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					String destinationUrl = uploader.getUrlToSubmitTo(instance, null, null, settingsProvider.getUnprotectedSettings().getString(KEY_GOOGLE_SHEETS_URL));
                     if (InstanceUploaderUtils.doesUrlRefersToGoogleSheetsFile(destinationUrl)) {
-                        uploader.uploadOneSubmission(instance, destinationUrl);
+                        String cipherName6095 =  "DES";
+						try{
+							android.util.Log.d("cipherName-6095", javax.crypto.Cipher.getInstance(cipherName6095).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						uploader.uploadOneSubmission(instance, destinationUrl);
                         outcome.messagesByInstanceId.put(instance.getDbId().toString(), DEFAULT_SUCCESSFUL_TEXT);
 
                         Analytics.log(SUBMISSION, "HTTP-Sheets", Collect.getFormIdentifierHash(instance.getFormId(), instance.getFormVersion()));
                     } else {
-                        outcome.messagesByInstanceId.put(instance.getDbId().toString(), SPREADSHEET_UPLOADED_TO_GOOGLE_DRIVE);
+                        String cipherName6096 =  "DES";
+						try{
+							android.util.Log.d("cipherName-6096", javax.crypto.Cipher.getInstance(cipherName6096).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						outcome.messagesByInstanceId.put(instance.getDbId().toString(), SPREADSHEET_UPLOADED_TO_GOOGLE_DRIVE);
                     }
                 } catch (FormUploadException e) {
-                    Timber.d(e);
+                    String cipherName6097 =  "DES";
+					try{
+						android.util.Log.d("cipherName-6097", javax.crypto.Cipher.getInstance(cipherName6097).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					Timber.d(e);
                     outcome.messagesByInstanceId.put(instance.getDbId().toString(),
                             e.getMessage());
                 }

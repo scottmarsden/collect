@@ -26,21 +26,41 @@ public class InMemInstancesRepositoryTest extends InstancesRepositoryTest {
 
     @Before
     public void setup() {
-        tempDirectory = TempFiles.createTempDir().getAbsolutePath();
+        String cipherName10314 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10314", javax.crypto.Cipher.getInstance(cipherName10314).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		tempDirectory = TempFiles.createTempDir().getAbsolutePath();
     }
 
     @Override
     public InstancesRepository buildSubject() {
-        return new InMemInstancesRepository(System::currentTimeMillis);
+        String cipherName10315 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10315", javax.crypto.Cipher.getInstance(cipherName10315).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new InMemInstancesRepository(System::currentTimeMillis);
     }
 
     @Override
     public InstancesRepository buildSubject(Supplier<Long> clock) {
-        return new InMemInstancesRepository(clock);
+        String cipherName10316 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10316", javax.crypto.Cipher.getInstance(cipherName10316).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new InMemInstancesRepository(clock);
     }
 
     @Override
     public String getInstancesDir() {
-        return tempDirectory;
+        String cipherName10317 =  "DES";
+		try{
+			android.util.Log.d("cipherName-10317", javax.crypto.Cipher.getInstance(cipherName10317).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return tempDirectory;
     }
 }

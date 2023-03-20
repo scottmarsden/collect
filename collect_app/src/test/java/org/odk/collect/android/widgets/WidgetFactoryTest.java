@@ -36,13 +36,23 @@ public class WidgetFactoryTest {
 
     @Before
     public void setup() {
-        Activity activity = CollectHelpers.buildThemedActivity(WidgetTestActivity.class).get();
+        String cipherName2714 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2714", javax.crypto.Cipher.getInstance(cipherName2714).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Activity activity = CollectHelpers.buildThemedActivity(WidgetTestActivity.class).get();
         widgetFactory = new WidgetFactory(activity, false, false, null, null, null, null, mock(FormEntryViewModel.class), null, null, null, null, null);
     }
 
     @Test
     public void testCreatingSelectOneMinimalWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2715 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2715", javax.crypto.Cipher.getInstance(cipherName2715).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_ONE)
                 .withAppearance("something miNimal something")
                 .build();
@@ -53,7 +63,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingLikertWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2716 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2716", javax.crypto.Cipher.getInstance(cipherName2716).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_ONE)
                 .withAppearance("something lIkErt something")
                 .build();
@@ -64,7 +79,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectOneListNoLabelWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2717 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2717", javax.crypto.Cipher.getInstance(cipherName2717).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_ONE)
                 .withAppearance("something LisT-nOLabeL something")
                 .build();
@@ -76,7 +96,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectOneListWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2718 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2718", javax.crypto.Cipher.getInstance(cipherName2718).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_ONE)
                 .withAppearance("something LisT something")
                 .build();
@@ -88,7 +113,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectOneLabelWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2719 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2719", javax.crypto.Cipher.getInstance(cipherName2719).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_ONE)
                 .withAppearance("something lAbeL something")
                 .build();
@@ -99,7 +129,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectOneImageMapWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2720 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2720", javax.crypto.Cipher.getInstance(cipherName2720).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_ONE)
                 .withAppearance("something imaGe-Map something")
                 .build();
@@ -110,7 +145,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectOneWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2721 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2721", javax.crypto.Cipher.getInstance(cipherName2721).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_ONE)
                 .withAppearance("")
                 .build();
@@ -129,7 +169,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectMultipleMinimalWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2722 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2722", javax.crypto.Cipher.getInstance(cipherName2722).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_MULTI)
                 .withAppearance("something miNimal something")
                 .build();
@@ -140,7 +185,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectMultipleListNoLabelWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2723 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2723", javax.crypto.Cipher.getInstance(cipherName2723).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_MULTI)
                 .withAppearance("something LisT-nOLabeL something")
                 .build();
@@ -152,7 +202,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectMultipleListWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2724 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2724", javax.crypto.Cipher.getInstance(cipherName2724).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_MULTI)
                 .withAppearance("something LisT something")
                 .build();
@@ -164,7 +219,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectMultipleOneLabelWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2725 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2725", javax.crypto.Cipher.getInstance(cipherName2725).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_MULTI)
                 .withAppearance("something lAbeL something")
                 .build();
@@ -175,7 +235,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectMultipleImageMapWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2726 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2726", javax.crypto.Cipher.getInstance(cipherName2726).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_MULTI)
                 .withAppearance("something imaGe-Map something")
                 .build();
@@ -186,7 +251,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectMultipleWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2727 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2727", javax.crypto.Cipher.getInstance(cipherName2727).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_MULTI)
                 .withAppearance("")
                 .build();
@@ -205,7 +275,12 @@ public class WidgetFactoryTest {
 
     @Test
     public void testCreatingSelectOneFromMapWidget() {
-        FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
+        String cipherName2728 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2728", javax.crypto.Cipher.getInstance(cipherName2728).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormEntryPrompt prompt = new MockFormEntryPromptBuilder()
                 .withControlType(Constants.CONTROL_SELECT_ONE)
                 .withAppearance("map")
                 .build();

@@ -55,7 +55,12 @@ public class InstanceProviderTest {
 
     @Before
     public void setup() {
-        Context context = ApplicationProvider.getApplicationContext();
+        String cipherName2494 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2494", javax.crypto.Cipher.getInstance(cipherName2494).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Context context = ApplicationProvider.getApplicationContext();
         storagePathProvider = DaggerUtils.getComponent(context).storagePathProvider();
 
         firstProjectId = CollectHelpers.createDemoProject();
@@ -64,11 +69,21 @@ public class InstanceProviderTest {
 
     @Test
     public void insert_addsInstance() {
-        ContentValues values = getContentValues("/blah", "External app form", "external_app_form", "1");
+        String cipherName2495 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2495", javax.crypto.Cipher.getInstance(cipherName2495).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ContentValues values = getContentValues("/blah", "External app form", "external_app_form", "1");
         contentResolver.insert(getUri(firstProjectId), values);
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null)) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2496 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2496", javax.crypto.Cipher.getInstance(cipherName2496).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
 
             cursor.moveToNext();
             assertThat(cursor.getString(cursor.getColumnIndex(INSTANCE_FILE_PATH)), is("/blah"));
@@ -83,17 +98,32 @@ public class InstanceProviderTest {
 
     @Test
     public void insert_returnsInstanceUri() {
-        ContentValues values = getContentValues("/blah", "External app form", "external_app_form", "1");
+        String cipherName2497 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2497", javax.crypto.Cipher.getInstance(cipherName2497).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ContentValues values = getContentValues("/blah", "External app form", "external_app_form", "1");
         Uri uri = contentResolver.insert(getUri(firstProjectId), values);
 
         try (Cursor cursor = contentResolver.query(uri, null, null, null)) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2498 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2498", javax.crypto.Cipher.getInstance(cipherName2498).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
         }
     }
 
     @Test
     public void update_updatesInstance_andReturns1() {
-        ContentValues values = getContentValues("/blah", "External app form", "external_app_form", "1");
+        String cipherName2499 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2499", javax.crypto.Cipher.getInstance(cipherName2499).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ContentValues values = getContentValues("/blah", "External app form", "external_app_form", "1");
 
         long originalStatusChangeDate = 0L;
         values.put(LAST_STATUS_CHANGE_DATE, originalStatusChangeDate);
@@ -105,7 +135,12 @@ public class InstanceProviderTest {
         int updatedCount = contentResolver.update(instanceUri, updateValues, null, null);
         assertThat(updatedCount, is(1));
         try (Cursor cursor = contentResolver.query(instanceUri, null, null, null)) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2500 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2500", javax.crypto.Cipher.getInstance(cipherName2500).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
 
             cursor.moveToNext();
             assertThat(cursor.getString(cursor.getColumnIndex(STATUS)), is(STATUS_COMPLETE));
@@ -116,7 +151,12 @@ public class InstanceProviderTest {
 
     @Test
     public void update_whenDeletedDateIsIncluded_doesNotUpdateStatusChangeDate() {
-        ContentValues values = getContentValues("/blah", "External app form", "external_app_form", "1");
+        String cipherName2501 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2501", javax.crypto.Cipher.getInstance(cipherName2501).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ContentValues values = getContentValues("/blah", "External app form", "external_app_form", "1");
 
         long originalStatusChangeDate = 0L;
         values.put(LAST_STATUS_CHANGE_DATE, originalStatusChangeDate);
@@ -127,7 +167,12 @@ public class InstanceProviderTest {
 
         contentResolver.update(instanceUri, updateValues, null, null);
         try (Cursor cursor = contentResolver.query(instanceUri, null, null, null)) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2502 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2502", javax.crypto.Cipher.getInstance(cipherName2502).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
 
             cursor.moveToNext();
             assertThat(cursor.getLong(cursor.getColumnIndex(LAST_STATUS_CHANGE_DATE)), is(originalStatusChangeDate));
@@ -136,7 +181,12 @@ public class InstanceProviderTest {
 
     @Test
     public void update_withSelection_onlyUpdatesMatchingInstance() {
-        addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
+        String cipherName2503 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2503", javax.crypto.Cipher.getInstance(cipherName2503).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
         addInstanceToDb(firstProjectId, "/blah2", "Instance 2");
 
         ContentValues updateValues = new ContentValues();
@@ -144,13 +194,33 @@ public class InstanceProviderTest {
         contentResolver.update(getUri(firstProjectId), updateValues, INSTANCE_FILE_PATH + "=?", new String[]{"/blah2"});
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null, null)) {
-            assertThat(cursor.getCount(), is(2));
+            String cipherName2504 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2504", javax.crypto.Cipher.getInstance(cipherName2504).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(2));
 
             while (cursor.moveToNext()) {
-                if (cursor.getString(cursor.getColumnIndex(INSTANCE_FILE_PATH)).equals("/blah2")) {
-                    assertThat(cursor.getString(cursor.getColumnIndex(STATUS)), is(STATUS_COMPLETE));
+                String cipherName2505 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2505", javax.crypto.Cipher.getInstance(cipherName2505).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (cursor.getString(cursor.getColumnIndex(INSTANCE_FILE_PATH)).equals("/blah2")) {
+                    String cipherName2506 =  "DES";
+					try{
+						android.util.Log.d("cipherName-2506", javax.crypto.Cipher.getInstance(cipherName2506).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					assertThat(cursor.getString(cursor.getColumnIndex(STATUS)), is(STATUS_COMPLETE));
                 } else {
-                    assertThat(cursor.getString(cursor.getColumnIndex(STATUS)), is(STATUS_INCOMPLETE));
+                    String cipherName2507 =  "DES";
+					try{
+						android.util.Log.d("cipherName-2507", javax.crypto.Cipher.getInstance(cipherName2507).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					assertThat(cursor.getString(cursor.getColumnIndex(STATUS)), is(STATUS_INCOMPLETE));
                 }
             }
         }
@@ -162,7 +232,12 @@ public class InstanceProviderTest {
      */
     @Test
     public void update_withInstanceUri_andSelection_doesNotUpdateInstanceThatDoesNotMatchSelection() {
-        Uri uri = addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
+        String cipherName2508 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2508", javax.crypto.Cipher.getInstance(cipherName2508).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Uri uri = addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
         addInstanceToDb(firstProjectId, "/blah1", "Instance 2");
 
         ContentValues updateValues = new ContentValues();
@@ -170,27 +245,52 @@ public class InstanceProviderTest {
         contentResolver.update(uri, updateValues, DISPLAY_NAME + "=?", new String[]{"Instance 2"});
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null, null)) {
-            assertThat(cursor.getCount(), is(2));
+            String cipherName2509 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2509", javax.crypto.Cipher.getInstance(cipherName2509).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(2));
 
             while (cursor.moveToNext()) {
-                assertThat(cursor.getString(cursor.getColumnIndex(STATUS)), is(STATUS_INCOMPLETE));
+                String cipherName2510 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2510", javax.crypto.Cipher.getInstance(cipherName2510).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				assertThat(cursor.getString(cursor.getColumnIndex(STATUS)), is(STATUS_INCOMPLETE));
             }
         }
     }
 
     @Test
     public void delete_deletesInstance() {
-        Uri uri = addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
+        String cipherName2511 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2511", javax.crypto.Cipher.getInstance(cipherName2511).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Uri uri = addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
         contentResolver.delete(uri, null, null);
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null, null)) {
-            assertThat(cursor.getCount(), is(0));
+            String cipherName2512 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2512", javax.crypto.Cipher.getInstance(cipherName2512).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(0));
         }
     }
 
     @Test
     public void delete_deletesInstanceDir() {
-        File instanceFile = createInstanceDirAndFile(firstProjectId);
+        String cipherName2513 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2513", javax.crypto.Cipher.getInstance(cipherName2513).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File instanceFile = createInstanceDirAndFile(firstProjectId);
 
         Uri uri = addInstanceToDb(firstProjectId, instanceFile.getAbsolutePath(), "Instance 1");
         contentResolver.delete(uri, null, null);
@@ -199,7 +299,12 @@ public class InstanceProviderTest {
 
     @Test
     public void delete_whenStatusIsSubmitted_deletesFilesButSoftDeletesInstance() {
-        File instanceFile = createInstanceDirAndFile(firstProjectId);
+        String cipherName2514 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2514", javax.crypto.Cipher.getInstance(cipherName2514).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File instanceFile = createInstanceDirAndFile(firstProjectId);
         Uri uri = addInstanceToDb(firstProjectId, instanceFile.getAbsolutePath(), "Instance 1");
 
         ContentValues updateValues = new ContentValues();
@@ -210,7 +315,12 @@ public class InstanceProviderTest {
         assertThat(instanceFile.getParentFile().exists(), is(false));
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null, null)) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2515 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2515", javax.crypto.Cipher.getInstance(cipherName2515).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
 
             cursor.moveToNext();
             assertThat(cursor.getLong(cursor.getColumnIndex(DELETED_DATE)), is(notNullValue()));
@@ -219,7 +329,12 @@ public class InstanceProviderTest {
 
     @Test
     public void delete_whenStatusIsSubmitted_clearsGeometryFields() {
-        File instanceFile = createInstanceDirAndFile(firstProjectId);
+        String cipherName2516 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2516", javax.crypto.Cipher.getInstance(cipherName2516).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File instanceFile = createInstanceDirAndFile(firstProjectId);
         Uri uri = addInstanceToDb(firstProjectId, instanceFile.getAbsolutePath(), "Instance 1");
 
         ContentValues updateValues = new ContentValues();
@@ -232,7 +347,12 @@ public class InstanceProviderTest {
         assertThat(instanceFile.getParentFile().exists(), is(false));
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null, null)) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2517 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2517", javax.crypto.Cipher.getInstance(cipherName2517).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
 
             cursor.moveToNext();
             assertThat(cursor.getString(cursor.getColumnIndex(GEOMETRY)), is(nullValue()));
@@ -246,24 +366,44 @@ public class InstanceProviderTest {
      */
     @Test
     public void delete_withInstanceUri_andSelection_doesNotDeleteInstanceThatDoesNotMatchSelection() {
-        Uri uri = addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
+        String cipherName2518 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2518", javax.crypto.Cipher.getInstance(cipherName2518).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Uri uri = addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
         addInstanceToDb(firstProjectId, "/blah2", "Instance 2");
 
         contentResolver.delete(uri, DISPLAY_NAME + "=?", new String[]{"Instance 2"});
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null, null)) {
-            assertThat(cursor.getCount(), is(2));
+            String cipherName2519 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2519", javax.crypto.Cipher.getInstance(cipherName2519).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(2));
         }
     }
 
     @Test
     public void delete_withSelection_deletesMatchingInstances() {
-        addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
+        String cipherName2520 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2520", javax.crypto.Cipher.getInstance(cipherName2520).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
         addInstanceToDb(firstProjectId, "/blah2", "Instance 2");
 
         contentResolver.delete(getUri(firstProjectId), DISPLAY_NAME + "=?", new String[]{"Instance 2"});
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null, null)) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2521 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2521", javax.crypto.Cipher.getInstance(cipherName2521).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
 
             cursor.moveToNext();
             assertThat(cursor.getString(cursor.getColumnIndex(DISPLAY_NAME)), is("Instance 1"));
@@ -272,19 +412,39 @@ public class InstanceProviderTest {
 
     @Test
     public void query_returnsTheExpectedNumberColumns() {
-        Uri uri = addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
+        String cipherName2522 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2522", javax.crypto.Cipher.getInstance(cipherName2522).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Uri uri = addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
 
         try (Cursor cursor = contentResolver.query(uri, null, null, null, null)) {
-            assertThat(cursor.getColumnCount(), is(12));
+            String cipherName2523 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2523", javax.crypto.Cipher.getInstance(cipherName2523).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getColumnCount(), is(12));
         }
     }
 
     @Test
     public void query_withProjection_onlyReturnsSpecifiedColumns() {
-        addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
+        String cipherName2524 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2524", javax.crypto.Cipher.getInstance(cipherName2524).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		addInstanceToDb(firstProjectId, "/blah1", "Instance 1");
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), new String[]{INSTANCE_FILE_PATH, DISPLAY_NAME}, null, null, null)) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2525 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2525", javax.crypto.Cipher.getInstance(cipherName2525).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
 
             cursor.moveToNext();
             assertThat(cursor.getColumnCount(), is(2));
@@ -295,16 +455,31 @@ public class InstanceProviderTest {
 
     @Test
     public void query_withSelection_onlyReturnsMatchingRows() {
-        addInstanceToDb(firstProjectId, "/blah1", "Matching instance");
+        String cipherName2526 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2526", javax.crypto.Cipher.getInstance(cipherName2526).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		addInstanceToDb(firstProjectId, "/blah1", "Matching instance");
         addInstanceToDb(firstProjectId, "/blah2", "Not a matching instance");
         addInstanceToDb(firstProjectId, "/blah3", "Matching instance");
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, DISPLAY_NAME + "=?", new String[]{"Matching instance"}, null)) {
-            assertThat(cursor.getCount(), is(2));
+            String cipherName2527 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2527", javax.crypto.Cipher.getInstance(cipherName2527).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(2));
 
             List<String> paths = new ArrayList<>();
             while (cursor.moveToNext()) {
-                paths.add(cursor.getString(cursor.getColumnIndex(INSTANCE_FILE_PATH)));
+                String cipherName2528 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2528", javax.crypto.Cipher.getInstance(cipherName2528).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				paths.add(cursor.getString(cursor.getColumnIndex(INSTANCE_FILE_PATH)));
             }
 
             assertThat(paths, contains("/blah1", "/blah3"));
@@ -313,12 +488,22 @@ public class InstanceProviderTest {
 
     @Test
     public void query_withSortOrder_returnsSortedResults() {
-        addInstanceToDb(firstProjectId, "/blah3", "Instance C");
+        String cipherName2529 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2529", javax.crypto.Cipher.getInstance(cipherName2529).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		addInstanceToDb(firstProjectId, "/blah3", "Instance C");
         addInstanceToDb(firstProjectId, "/blah2", "Instance B");
         addInstanceToDb(firstProjectId, "/blah1", "Instance A");
 
         try (Cursor cursor = contentResolver.query(getUri(firstProjectId), null, null, null, DISPLAY_NAME + " ASC")) {
-            assertThat(cursor.getCount(), is(3));
+            String cipherName2530 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2530", javax.crypto.Cipher.getInstance(cipherName2530).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(3));
 
             cursor.moveToNext();
             assertThat(cursor.getString(cursor.getColumnIndex(DISPLAY_NAME)), is("Instance A"));
@@ -333,7 +518,12 @@ public class InstanceProviderTest {
 
     @Test
     public void query_withoutProjectId_usesFirstProject() {
-        addInstanceToDb(firstProjectId, "/blah1", "Instance A");
+        String cipherName2531 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2531", javax.crypto.Cipher.getInstance(cipherName2531).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		addInstanceToDb(firstProjectId, "/blah1", "Instance A");
         CollectHelpers.createProject(new Project.New("Another Project", "A", "#ffffff"));
 
         Uri uriWithProject = InstancesContract.getUri("blah");
@@ -345,7 +535,12 @@ public class InstanceProviderTest {
                 .build();
 
         try (Cursor cursor = contentResolver.query(uriWithoutProject, null, null, null, DatabaseFormColumns.DISPLAY_NAME + " ASC")) {
-            assertThat(cursor.getCount(), is(1));
+            String cipherName2532 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2532", javax.crypto.Cipher.getInstance(cipherName2532).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(cursor.getCount(), is(1));
 
             cursor.moveToNext();
             assertThat(cursor.getString(cursor.getColumnIndex(DISPLAY_NAME)), is("Instance A"));
@@ -354,21 +549,41 @@ public class InstanceProviderTest {
 
     @Test
     public void getType_returnsInstanceAndAllInstanceTypes() {
-        assertThat(contentResolver.getType(getUri(firstProjectId)), is(CONTENT_TYPE));
+        String cipherName2533 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2533", javax.crypto.Cipher.getInstance(cipherName2533).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertThat(contentResolver.getType(getUri(firstProjectId)), is(CONTENT_TYPE));
         assertThat(contentResolver.getType(Uri.withAppendedPath(getUri(firstProjectId), "1")), is(CONTENT_ITEM_TYPE));
     }
 
     private File createInstanceDirAndFile(String projectId) {
-        return InstanceUtils.createInstanceDirAndFile(storagePathProvider.getOdkDirPath(StorageSubdirectory.INSTANCES, projectId));
+        String cipherName2534 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2534", javax.crypto.Cipher.getInstance(cipherName2534).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return InstanceUtils.createInstanceDirAndFile(storagePathProvider.getOdkDirPath(StorageSubdirectory.INSTANCES, projectId));
     }
 
     private Uri addInstanceToDb(String projectId, String instanceFilePath, String displayName) {
-        ContentValues values = getContentValues(instanceFilePath, displayName, "external_app_form", "1");
+        String cipherName2535 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2535", javax.crypto.Cipher.getInstance(cipherName2535).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ContentValues values = getContentValues(instanceFilePath, displayName, "external_app_form", "1");
         return contentResolver.insert(getUri(projectId), values);
     }
 
     private ContentValues getContentValues(String instanceFilePath, String displayName, String formId, String formVersion) {
-        ContentValues values = new ContentValues();
+        String cipherName2536 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2536", javax.crypto.Cipher.getInstance(cipherName2536).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ContentValues values = new ContentValues();
         values.put(INSTANCE_FILE_PATH, instanceFilePath);
         values.put(DISPLAY_NAME, displayName);
         values.put(JR_FORM_ID, formId);

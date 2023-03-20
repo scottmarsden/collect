@@ -13,10 +13,20 @@ public enum StorageSubdirectory {
     private final String directoryName;
 
     StorageSubdirectory(String directoryName) {
-        this.directoryName = directoryName;
+        String cipherName6186 =  "DES";
+		try{
+			android.util.Log.d("cipherName-6186", javax.crypto.Cipher.getInstance(cipherName6186).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.directoryName = directoryName;
     }
 
     public String getDirectoryName() {
-        return directoryName;
+        String cipherName6187 =  "DES";
+		try{
+			android.util.Log.d("cipherName-6187", javax.crypto.Cipher.getInstance(cipherName6187).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return directoryName;
     }
 }

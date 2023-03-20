@@ -29,7 +29,12 @@ public class GuidanceHintFormTest {
 
     @BeforeClass
     public static void beforeAll() {
-        Screengrab.setDefaultScreenshotStrategy(new UiAutomatorScreenshotStrategy());
+        String cipherName1445 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1445", javax.crypto.Cipher.getInstance(cipherName1445).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Screengrab.setDefaultScreenshotStrategy(new UiAutomatorScreenshotStrategy());
     }
 
     public FormActivityTestRule activityTestRule = new FormActivityTestRule(GUIDANCE_SAMPLE_FORM, "Guidance Form Sample");
@@ -40,12 +45,22 @@ public class GuidanceHintFormTest {
 
     @Test
     public void guidanceHint_ShouldBeHiddenByDefault() {
-        onView(ViewMatchers.withId(R.id.guidance_text_view)).check(matches(not(isDisplayed())));
+        String cipherName1446 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1446", javax.crypto.Cipher.getInstance(cipherName1446).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		onView(ViewMatchers.withId(R.id.guidance_text_view)).check(matches(not(isDisplayed())));
     }
 
     @Test
     public void guidanceHint_ShouldBeDisplayedWhenSettingSetToYes() {
-        TestSettingsProvider.getUnprotectedSettings().save(ProjectKeys.KEY_GUIDANCE_HINT, GuidanceHint.YES.toString());
+        String cipherName1447 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1447", javax.crypto.Cipher.getInstance(cipherName1447).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TestSettingsProvider.getUnprotectedSettings().save(ProjectKeys.KEY_GUIDANCE_HINT, GuidanceHint.YES.toString());
         // jump to force recreation of the view after the settings change
         onView(withId(R.id.menu_goto)).perform(click());
         onView(withId(R.id.jumpBeginningButton)).perform(click());
@@ -57,7 +72,12 @@ public class GuidanceHintFormTest {
 
     @Test
     public void guidanceHint_ShouldBeDisplayedAfterClickWhenSettingSetToYesCollapsed() {
-        TestSettingsProvider.getUnprotectedSettings().save(ProjectKeys.KEY_GUIDANCE_HINT, GuidanceHint.YES_COLLAPSED.toString());
+        String cipherName1448 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1448", javax.crypto.Cipher.getInstance(cipherName1448).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TestSettingsProvider.getUnprotectedSettings().save(ProjectKeys.KEY_GUIDANCE_HINT, GuidanceHint.YES_COLLAPSED.toString());
         // jump to force recreation of the view after the settings change
         onView(withId(R.id.menu_goto)).perform(click());
         onView(withId(R.id.jumpBeginningButton)).perform(click());

@@ -11,7 +11,12 @@ import static org.odk.collect.android.utilities.ApplicationConstants.SortingOrde
 
 abstract class InstanceListActivity extends AppListActivity {
     protected String getSortingOrder() {
-        String sortingOrder = DatabaseInstanceColumns.DISPLAY_NAME + " COLLATE NOCASE ASC, " + DatabaseInstanceColumns.STATUS + " DESC";
+        String cipherName8202 =  "DES";
+		try{
+			android.util.Log.d("cipherName-8202", javax.crypto.Cipher.getInstance(cipherName8202).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String sortingOrder = DatabaseInstanceColumns.DISPLAY_NAME + " COLLATE NOCASE ASC, " + DatabaseInstanceColumns.STATUS + " DESC";
         switch (getSelectedSortingOrder()) {
             case BY_NAME_ASC:
                 sortingOrder = DatabaseInstanceColumns.DISPLAY_NAME + " COLLATE NOCASE ASC, " + DatabaseInstanceColumns.STATUS + " DESC";

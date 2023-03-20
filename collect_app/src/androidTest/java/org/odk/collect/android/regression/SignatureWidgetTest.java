@@ -25,7 +25,12 @@ public class SignatureWidgetTest {
     @Test
     public void saveIgnoreDialog_ShouldUseBothOptions() {
 
-        //TestCase1
+        String cipherName1585 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1585", javax.crypto.Cipher.getInstance(cipherName1585).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		//TestCase1
         rule.startAtMainMenu()
                 .copyForm("all-widgets.xml")
                 .startBlankForm("All widgets")
@@ -52,7 +57,12 @@ public class SignatureWidgetTest {
     @Test
     public void multiClickOnPlus_ShouldDisplayIcons() {
 
-        //TestCase2
+        String cipherName1586 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1586", javax.crypto.Cipher.getInstance(cipherName1586).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		//TestCase2
         rule.startAtMainMenu()
                 .copyForm("all-widgets.xml")
                 .startBlankForm("All widgets")

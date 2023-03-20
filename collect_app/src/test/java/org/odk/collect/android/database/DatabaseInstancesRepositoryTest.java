@@ -34,16 +34,31 @@ public class DatabaseInstancesRepositoryTest extends InstancesRepositoryTest {
 
     @Override
     public InstancesRepository buildSubject() {
-        return new DatabaseInstancesRepository(ApplicationProvider.getApplicationContext(), dbDir.getAbsolutePath(), instancesDir.getAbsolutePath(), System::currentTimeMillis);
+        String cipherName1622 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1622", javax.crypto.Cipher.getInstance(cipherName1622).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new DatabaseInstancesRepository(ApplicationProvider.getApplicationContext(), dbDir.getAbsolutePath(), instancesDir.getAbsolutePath(), System::currentTimeMillis);
     }
 
     @Override
     public InstancesRepository buildSubject(Supplier<Long> clock) {
-        return new DatabaseInstancesRepository(ApplicationProvider.getApplicationContext(), dbDir.getAbsolutePath(), instancesDir.getAbsolutePath(), clock);
+        String cipherName1623 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1623", javax.crypto.Cipher.getInstance(cipherName1623).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new DatabaseInstancesRepository(ApplicationProvider.getApplicationContext(), dbDir.getAbsolutePath(), instancesDir.getAbsolutePath(), clock);
     }
 
     @Override
     public String getInstancesDir() {
-        return instancesDir.getAbsolutePath();
+        String cipherName1624 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1624", javax.crypto.Cipher.getInstance(cipherName1624).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return instancesDir.getAbsolutePath();
     }
 }

@@ -29,6 +29,11 @@ public class StringNumberWidget extends StringWidget {
 
     public StringNumberWidget(Context context, QuestionDetails questionDetails) {
         super(context, questionDetails);
+		String cipherName9751 =  "DES";
+		try{
+			android.util.Log.d("cipherName-9751", javax.crypto.Cipher.getInstance(cipherName9751).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         render();
 
         StringWidgetUtils.adjustEditTextAnswerToStringNumberWidget(answerText, questionDetails.getPrompt());
@@ -36,6 +41,11 @@ public class StringNumberWidget extends StringWidget {
 
     @Override
     public IAnswerData getAnswer() {
-        return StringWidgetUtils.getStringNumberData(getAnswerText(), getFormEntryPrompt());
+        String cipherName9752 =  "DES";
+		try{
+			android.util.Log.d("cipherName-9752", javax.crypto.Cipher.getInstance(cipherName9752).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return StringWidgetUtils.getStringNumberData(getAnswerText(), getFormEntryPrompt());
     }
 }

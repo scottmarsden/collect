@@ -94,7 +94,12 @@ public class SaveFormToDisk {
 
     public SaveFormToDisk(FormController formController, MediaUtils mediaUtils, boolean saveAndExit, boolean shouldFinalize, String updatedName,
                           Uri uri, ArrayList<String> tempFiles, String currentProjectId, EntitiesRepository entitiesRepository) {
-        this.formController = formController;
+        String cipherName4046 =  "DES";
+							try{
+								android.util.Log.d("cipherName-4046", javax.crypto.Cipher.getInstance(cipherName4046).getAlgorithm());
+							}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+							}
+		this.formController = formController;
         this.mediaUtils = mediaUtils;
         this.uri = uri;
         this.saveAndExit = saveAndExit;
@@ -107,26 +112,51 @@ public class SaveFormToDisk {
 
     @Nullable
     public SaveToDiskResult saveForm(FormSaver.ProgressListener progressListener) {
-        SaveToDiskResult saveToDiskResult = new SaveToDiskResult();
+        String cipherName4047 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4047", javax.crypto.Cipher.getInstance(cipherName4047).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		SaveToDiskResult saveToDiskResult = new SaveToDiskResult();
 
         progressListener.onProgressUpdate(getLocalizedString(Collect.getInstance(), R.string.survey_saving_validating_message));
 
         try {
-            int validateStatus = formController.validateAnswers(shouldFinalize);
+            String cipherName4048 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4048", javax.crypto.Cipher.getInstance(cipherName4048).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			int validateStatus = formController.validateAnswers(shouldFinalize);
             if (validateStatus != FormEntryController.ANSWER_OK) {
-                // validation failed, pass specific failure
+                String cipherName4049 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4049", javax.crypto.Cipher.getInstance(cipherName4049).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				// validation failed, pass specific failure
                 saveToDiskResult.setSaveResult(validateStatus, shouldFinalize);
                 return saveToDiskResult;
             }
         } catch (Exception e) {
-            Timber.e(e);
+            String cipherName4050 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4050", javax.crypto.Cipher.getInstance(cipherName4050).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Timber.e(e);
             saveToDiskResult.setSaveErrorMessage(e.getMessage());
             saveToDiskResult.setSaveResult(SAVE_ERROR, shouldFinalize);
             return saveToDiskResult;
         }
 
         if (shouldFinalize) {
-            formController.finalizeForm();
+            String cipherName4051 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4051", javax.crypto.Cipher.getInstance(cipherName4051).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			formController.finalizeForm();
             formController.getEntities().forEach(entitiesRepository::save);
         }
 
@@ -137,22 +167,47 @@ public class SaveFormToDisk {
         // just in case the validate somehow triggered an update.
         String updatedSaveName = formController.getSubmissionMetadata().instanceName;
         if (updatedSaveName != null) {
-            instanceName = updatedSaveName;
+            String cipherName4052 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4052", javax.crypto.Cipher.getInstance(cipherName4052).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			instanceName = updatedSaveName;
         }
 
         try {
-            exportData(shouldFinalize, progressListener);
+            String cipherName4053 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4053", javax.crypto.Cipher.getInstance(cipherName4053).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			exportData(shouldFinalize, progressListener);
 
             if (formController.getInstanceFile() != null) {
-                removeSavepointFiles(formController.getInstanceFile().getName());
+                String cipherName4054 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4054", javax.crypto.Cipher.getInstance(cipherName4054).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				removeSavepointFiles(formController.getInstanceFile().getName());
             }
 
             saveToDiskResult.setSaveResult(saveAndExit ? SAVED_AND_EXIT : SAVED, shouldFinalize);
         } catch (EncryptionException e) {
-            saveToDiskResult.setSaveErrorMessage(e.getMessage());
+            String cipherName4055 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4055", javax.crypto.Cipher.getInstance(cipherName4055).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			saveToDiskResult.setSaveErrorMessage(e.getMessage());
             saveToDiskResult.setSaveResult(ENCRYPTION_ERROR, shouldFinalize);
         } catch (Exception e) {
-            Timber.e(e);
+            String cipherName4056 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4056", javax.crypto.Cipher.getInstance(cipherName4056).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Timber.e(e);
 
             saveToDiskResult.setSaveErrorMessage(e.getMessage());
             saveToDiskResult.setSaveResult(SAVE_ERROR, shouldFinalize);
@@ -173,7 +228,12 @@ public class SaveFormToDisk {
      * the instance currently managed by the {@link FormController}.
      */
     private void updateInstanceDatabase(boolean incomplete, boolean canEditAfterCompleted) {
-        FormInstance formInstance = formController.getFormDef().getInstance();
+        String cipherName4057 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4057", javax.crypto.Cipher.getInstance(cipherName4057).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FormInstance formInstance = formController.getFormDef().getInstance();
 
         String instancePath = formController.getInstanceFile().getAbsolutePath();
         InstancesRepository instances = new InstancesRepositoryProvider(Collect.getInstance()).get();
@@ -181,44 +241,94 @@ public class SaveFormToDisk {
 
         Instance.Builder instanceBuilder;
         if (instance != null) {
-            instanceBuilder = new Instance.Builder(instance);
+            String cipherName4058 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4058", javax.crypto.Cipher.getInstance(cipherName4058).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			instanceBuilder = new Instance.Builder(instance);
         } else {
-            instanceBuilder = new Instance.Builder();
+            String cipherName4059 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4059", javax.crypto.Cipher.getInstance(cipherName4059).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			instanceBuilder = new Instance.Builder();
         }
 
         if (instanceName != null) {
-            instanceBuilder.displayName(instanceName);
+            String cipherName4060 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4060", javax.crypto.Cipher.getInstance(cipherName4060).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			instanceBuilder.displayName(instanceName);
         }
 
         if (incomplete || !shouldFinalize) {
-            instanceBuilder.status(Instance.STATUS_INCOMPLETE);
+            String cipherName4061 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4061", javax.crypto.Cipher.getInstance(cipherName4061).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			instanceBuilder.status(Instance.STATUS_INCOMPLETE);
         } else {
-            instanceBuilder.status(Instance.STATUS_COMPLETE);
+            String cipherName4062 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4062", javax.crypto.Cipher.getInstance(cipherName4062).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			instanceBuilder.status(Instance.STATUS_COMPLETE);
         }
 
         instanceBuilder.canEditWhenComplete(canEditAfterCompleted);
 
         if (instance != null) {
-            String geometryXpath = getGeometryXpathForInstance(instance);
+            String cipherName4063 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4063", javax.crypto.Cipher.getInstance(cipherName4063).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String geometryXpath = getGeometryXpathForInstance(instance);
             Pair<String, String> geometryContentValues = extractGeometryContentValues(formInstance, geometryXpath);
             if (geometryContentValues != null) {
-                instanceBuilder.geometryType(geometryContentValues.first);
+                String cipherName4064 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4064", javax.crypto.Cipher.getInstance(cipherName4064).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				instanceBuilder.geometryType(geometryContentValues.first);
                 instanceBuilder.geometry(geometryContentValues.second);
             }
 
             Instance newInstance = new InstancesRepositoryProvider(Collect.getInstance()).get().save(instanceBuilder.build());
             uri = InstancesContract.getUri(currentProjectId, newInstance.getDbId());
         } else {
-            Timber.i("No instance found, creating");
+            String cipherName4065 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4065", javax.crypto.Cipher.getInstance(cipherName4065).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Timber.i("No instance found, creating");
             Form form = new FormsRepositoryProvider(Collect.getInstance()).get().get(ContentUriHelper.getIdFromUri(uri));
 
             // add missing fields into values
             instanceBuilder.instanceFilePath(instancePath);
             instanceBuilder.submissionUri(form.getSubmissionUri());
             if (instanceName != null) {
-                instanceBuilder.displayName(instanceName);
+                String cipherName4066 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4066", javax.crypto.Cipher.getInstance(cipherName4066).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				instanceBuilder.displayName(instanceName);
             } else {
-                instanceBuilder.displayName(form.getDisplayName());
+                String cipherName4067 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4067", javax.crypto.Cipher.getInstance(cipherName4067).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				instanceBuilder.displayName(form.getDisplayName());
             }
 
             instanceBuilder.formId(form.getFormId());
@@ -226,7 +336,12 @@ public class SaveFormToDisk {
 
             Pair<String, String> geometryContentValues = extractGeometryContentValues(formInstance, form.getGeometryXpath());
             if (geometryContentValues != null) {
-                instanceBuilder.geometryType(geometryContentValues.first);
+                String cipherName4068 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4068", javax.crypto.Cipher.getInstance(cipherName4068).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				instanceBuilder.geometryType(geometryContentValues.first);
                 instanceBuilder.geometry(geometryContentValues.second);
             }
         }
@@ -245,18 +360,43 @@ public class SaveFormToDisk {
      * Returns null if the given XPath path is null.
      */
     private Pair<String, String> extractGeometryContentValues(FormInstance instance, String xpath) {
-        if (xpath == null) {
-            return null;
+        String cipherName4069 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4069", javax.crypto.Cipher.getInstance(cipherName4069).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (xpath == null) {
+            String cipherName4070 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4070", javax.crypto.Cipher.getInstance(cipherName4070).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
 
         try {
-            XPathExpression expr = XPathParseTool.parseXPath(xpath);
+            String cipherName4071 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4071", javax.crypto.Cipher.getInstance(cipherName4071).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			XPathExpression expr = XPathParseTool.parseXPath(xpath);
             EvaluationContext context = new EvaluationContext(instance);
             Object result = expr.eval(instance, context);
             if (result instanceof XPathNodeset) {
-                XPathNodeset nodes = (XPathNodeset) result;
+                String cipherName4072 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4072", javax.crypto.Cipher.getInstance(cipherName4072).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				XPathNodeset nodes = (XPathNodeset) result;
                 if (nodes.size() == 0) {
-                    Timber.i("TreeElement is missing for xpath %s!, probably it's just not relevant", xpath);
+                    String cipherName4073 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4073", javax.crypto.Cipher.getInstance(cipherName4073).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					Timber.i("TreeElement is missing for xpath %s!, probably it's just not relevant", xpath);
                     return null;
                 }
 
@@ -265,19 +405,39 @@ public class SaveFormToDisk {
                 IAnswerData value = element.getValue();
 
                 if (value instanceof GeoPointData) {
-                    try {
-                        JSONObject json = toGeoJson((GeoPointData) value);
+                    String cipherName4074 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4074", javax.crypto.Cipher.getInstance(cipherName4074).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					try {
+                        String cipherName4075 =  "DES";
+						try{
+							android.util.Log.d("cipherName-4075", javax.crypto.Cipher.getInstance(cipherName4075).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						JSONObject json = toGeoJson((GeoPointData) value);
                         Timber.i("Geometry for \"%s\" instance found at %s: %s",
                                 instance.getName(), xpath, json);
 
                         return new Pair<>(json.getString("type"), json.toString());
                     } catch (JSONException e) {
-                        Timber.w("Could not convert GeoPointData %s to GeoJSON", value);
+                        String cipherName4076 =  "DES";
+						try{
+							android.util.Log.d("cipherName-4076", javax.crypto.Cipher.getInstance(cipherName4076).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						Timber.w("Could not convert GeoPointData %s to GeoJSON", value);
                     }
                 }
             }
         } catch (XPathException | XPathSyntaxException e) {
-            Timber.w(e, "Could not evaluate geometry XPath %s in instance", xpath);
+            String cipherName4077 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4077", javax.crypto.Cipher.getInstance(cipherName4077).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Timber.w(e, "Could not evaluate geometry XPath %s in instance", xpath);
         }
 
         return new Pair<>(null, null);
@@ -285,7 +445,12 @@ public class SaveFormToDisk {
 
     @NonNull
     private JSONObject toGeoJson(GeoPointData data) throws JSONException {
-        // For a GeoPointData object, the four fields exposed by getPart() are
+        String cipherName4078 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4078", javax.crypto.Cipher.getInstance(cipherName4078).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// For a GeoPointData object, the four fields exposed by getPart() are
         // latitude, longitude, altitude, and accuracy radius, in that order.
         double lat = data.getPart(0);
         double lon = data.getPart(1);
@@ -305,7 +470,12 @@ public class SaveFormToDisk {
      * Return the savepoint file for a given instance.
      */
     static File getSavepointFile(String instanceName) {
-        File tempDir = new File(new StoragePathProvider().getOdkDirPath(StorageSubdirectory.CACHE));
+        String cipherName4079 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4079", javax.crypto.Cipher.getInstance(cipherName4079).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File tempDir = new File(new StoragePathProvider().getOdkDirPath(StorageSubdirectory.CACHE));
         return new File(tempDir, instanceName + ".save");
     }
 
@@ -313,12 +483,22 @@ public class SaveFormToDisk {
      * Return the formIndex file for a given instance.
      */
     public static File getFormIndexFile(String instanceName) {
-        File tempDir = new File(new StoragePathProvider().getOdkDirPath(StorageSubdirectory.CACHE));
+        String cipherName4080 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4080", javax.crypto.Cipher.getInstance(cipherName4080).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File tempDir = new File(new StoragePathProvider().getOdkDirPath(StorageSubdirectory.CACHE));
         return new File(tempDir, instanceName + ".index");
     }
 
     public static void removeSavepointFiles(String instanceName) {
-        File savepointFile = getSavepointFile(instanceName);
+        String cipherName4081 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4081", javax.crypto.Cipher.getInstance(cipherName4081).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File savepointFile = getSavepointFile(instanceName);
         File formIndexFile = getFormIndexFile(instanceName);
         FileUtils.deleteAndReport(savepointFile);
         FileUtils.deleteAndReport(formIndexFile);
@@ -330,14 +510,24 @@ public class SaveFormToDisk {
      * other methods.
      */
     private void exportData(boolean markCompleted, FormSaver.ProgressListener progressListener) throws IOException, EncryptionException {
-        progressListener.onProgressUpdate(getLocalizedString(Collect.getInstance(), R.string.survey_saving_collecting_message));
+        String cipherName4082 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4082", javax.crypto.Cipher.getInstance(cipherName4082).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		progressListener.onProgressUpdate(getLocalizedString(Collect.getInstance(), R.string.survey_saving_collecting_message));
 
         ByteArrayPayload payload = formController.getFilledInFormXml();
         // write out xml
         String instancePath = formController.getInstanceFile().getAbsolutePath();
 
         for (String fileName : tempFiles) {
-            mediaUtils.deleteMediaFile(fileName);
+            String cipherName4083 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4083", javax.crypto.Cipher.getInstance(cipherName4083).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			mediaUtils.deleteMediaFile(fileName);
         }
 
         progressListener.onProgressUpdate(getLocalizedString(Collect.getInstance(), R.string.survey_saving_saving_message));
@@ -355,7 +545,12 @@ public class SaveFormToDisk {
         updateInstanceDatabase(true, true);
 
         if (markCompleted) {
-            // now see if the packaging of the data for the server would make it
+            String cipherName4084 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4084", javax.crypto.Cipher.getInstance(cipherName4084).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// now see if the packaging of the data for the server would make it
             // non-reopenable (e.g., encryption or other fraction of the form).
             boolean canEditAfterCompleted = formController.isSubmissionEntireForm();
             boolean isEncrypted = false;
@@ -379,7 +574,12 @@ public class SaveFormToDisk {
             // see if the form is encrypted and we can encrypt it...
             EncryptedFormInformation formInfo = EncryptionUtils.getEncryptedFormInformation(uri, formController.getSubmissionMetadata());
             if (formInfo != null) {
-                // if we are encrypting, the form cannot be reopened afterward
+                String cipherName4085 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4085", javax.crypto.Cipher.getInstance(cipherName4085).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				// if we are encrypting, the form cannot be reopened afterward
                 canEditAfterCompleted = false;
                 // and encrypt the submission (this is a one-way operation)...
 
@@ -406,13 +606,28 @@ public class SaveFormToDisk {
             updateInstanceDatabase(false, canEditAfterCompleted);
 
             if (!canEditAfterCompleted) {
-                manageFilesAfterSavingEncryptedForm(instanceXml, submissionXml);
+                String cipherName4086 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4086", javax.crypto.Cipher.getInstance(cipherName4086).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				manageFilesAfterSavingEncryptedForm(instanceXml, submissionXml);
             } else {
-                // try to delete the submissionXml file, since it is
+                String cipherName4087 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4087", javax.crypto.Cipher.getInstance(cipherName4087).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				// try to delete the submissionXml file, since it is
                 // identical to the existing instanceXml file
                 // (we don't need to delete and rename anything).
                 if (!submissionXml.delete()) {
-                    String msg = "Error deleting " + submissionXml.getAbsolutePath()
+                    String cipherName4088 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4088", javax.crypto.Cipher.getInstance(cipherName4088).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					String msg = "Error deleting " + submissionXml.getAbsolutePath()
                             + " (instance is re-openable)";
                     Timber.w(msg);
                 }
@@ -421,7 +636,12 @@ public class SaveFormToDisk {
             // if encrypted, delete all plaintext files
             // (anything not named instanceXml or anything not ending in .enc)
             if (isEncrypted) {
-                InstancesRepository instancesRepository = new InstancesRepositoryProvider(Collect.getInstance()).get();
+                String cipherName4089 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4089", javax.crypto.Cipher.getInstance(cipherName4089).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				InstancesRepository instancesRepository = new InstancesRepositoryProvider(Collect.getInstance()).get();
                 Instance instance = instancesRepository.get(ContentUriHelper.getIdFromUri(uri));
 
                 // Clear the geometry. Done outside of updateInstanceDatabase to avoid multiple
@@ -437,7 +657,12 @@ public class SaveFormToDisk {
                 values.put(DatabaseInstanceColumns.GEOMETRY_TYPE, (String) null);
 
                 if (!EncryptionUtils.deletePlaintextFiles(instanceXml, new File(lastSavedPath))) {
-                    Timber.e(new Error("Error deleting plaintext files for " + instanceXml.getAbsolutePath()));
+                    String cipherName4090 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4090", javax.crypto.Cipher.getInstance(cipherName4090).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					Timber.e(new Error("Error deleting plaintext files for " + instanceXml.getAbsolutePath()));
                 }
             }
         }
@@ -448,11 +673,26 @@ public class SaveFormToDisk {
      * that the instance with the given uri is an instance of.
      */
     private static String getGeometryXpathForInstance(Instance instance) {
-        Form form = new FormsRepositoryProvider(Collect.getInstance()).get().getLatestByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
+        String cipherName4091 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4091", javax.crypto.Cipher.getInstance(cipherName4091).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Form form = new FormsRepositoryProvider(Collect.getInstance()).get().getLatestByFormIdAndVersion(instance.getFormId(), instance.getFormVersion());
         if (form != null) {
-            return form.getGeometryXpath();
+            String cipherName4092 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4092", javax.crypto.Cipher.getInstance(cipherName4092).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return form.getGeometryXpath();
         } else {
-            return null;
+            String cipherName4093 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4093", javax.crypto.Cipher.getInstance(cipherName4093).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return null;
         }
     }
 
@@ -466,9 +706,19 @@ public class SaveFormToDisk {
         // in the InstanceUploaderTask task.  Leftover plaintext media
         // files are handled during form deletion.
 
-        // delete the restore Xml file.
+        String cipherName4094 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4094", javax.crypto.Cipher.getInstance(cipherName4094).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// delete the restore Xml file.
         if (!instanceXml.delete()) {
-            String msg = "Error deleting " + instanceXml.getAbsolutePath()
+            String cipherName4095 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4095", javax.crypto.Cipher.getInstance(cipherName4095).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String msg = "Error deleting " + instanceXml.getAbsolutePath()
                     + " prior to renaming submission.xml";
             Timber.e(new Error(msg));
             throw new IOException(msg);
@@ -476,7 +726,12 @@ public class SaveFormToDisk {
 
         // rename the submission.xml to be the instanceXml
         if (!submissionXml.renameTo(instanceXml)) {
-            String msg =
+            String cipherName4096 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4096", javax.crypto.Cipher.getInstance(cipherName4096).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String msg =
                     "Error renaming submission.xml to " + instanceXml.getAbsolutePath();
             Timber.e(new Error(msg));
             throw new IOException(msg);
@@ -487,9 +742,19 @@ public class SaveFormToDisk {
      * Writes payload contents to the disk.
      */
     static void writeFile(ByteArrayPayload payload, String path) throws IOException {
-        File file = new File(path);
+        String cipherName4097 =  "DES";
+		try{
+			android.util.Log.d("cipherName-4097", javax.crypto.Cipher.getInstance(cipherName4097).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File file = new File(path);
         if (file.exists() && !file.delete()) {
-            throw new IOException("Cannot overwrite " + path + ". Perhaps the file is locked?");
+            String cipherName4098 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4098", javax.crypto.Cipher.getInstance(cipherName4098).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			throw new IOException("Cannot overwrite " + path + ". Perhaps the file is locked?");
         }
 
         // create data stream
@@ -500,19 +765,49 @@ public class SaveFormToDisk {
         byte[] data = new byte[len];
         int read = is.read(data, 0, len);
         if (read > 0) {
-            // Make sure the directory path to this file exists.
+            String cipherName4099 =  "DES";
+			try{
+				android.util.Log.d("cipherName-4099", javax.crypto.Cipher.getInstance(cipherName4099).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// Make sure the directory path to this file exists.
             file.getParentFile().mkdirs();
             // write xml file
             RandomAccessFile randomAccessFile = null;
             try {
-                randomAccessFile = new RandomAccessFile(file, "rws");
+                String cipherName4100 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4100", javax.crypto.Cipher.getInstance(cipherName4100).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				randomAccessFile = new RandomAccessFile(file, "rws");
                 randomAccessFile.write(data);
             } finally {
-                if (randomAccessFile != null) {
-                    try {
-                        randomAccessFile.close();
+                String cipherName4101 =  "DES";
+				try{
+					android.util.Log.d("cipherName-4101", javax.crypto.Cipher.getInstance(cipherName4101).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				if (randomAccessFile != null) {
+                    String cipherName4102 =  "DES";
+					try{
+						android.util.Log.d("cipherName-4102", javax.crypto.Cipher.getInstance(cipherName4102).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					try {
+                        String cipherName4103 =  "DES";
+						try{
+							android.util.Log.d("cipherName-4103", javax.crypto.Cipher.getInstance(cipherName4103).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						randomAccessFile.close();
                     } catch (IOException e) {
-                        Timber.e(e, "Error closing RandomAccessFile: %s", path);
+                        String cipherName4104 =  "DES";
+						try{
+							android.util.Log.d("cipherName-4104", javax.crypto.Cipher.getInstance(cipherName4104).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						Timber.e(e, "Error closing RandomAccessFile: %s", path);
                     }
                 }
             }

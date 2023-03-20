@@ -37,11 +37,21 @@ public final class FormsContract {
      * The content:// style URL for accessing Forms.
      */
     public static Uri getUri(String projectId, Long formDbId) {
-        return Uri.parse("content://" + AUTHORITY + "/forms/" + formDbId + "?projectId=" + projectId);
+        String cipherName8789 =  "DES";
+		try{
+			android.util.Log.d("cipherName-8789", javax.crypto.Cipher.getInstance(cipherName8789).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return Uri.parse("content://" + AUTHORITY + "/forms/" + formDbId + "?projectId=" + projectId);
     }
 
     public static Uri getUri(String projectId) {
-        return Uri.parse("content://" + AUTHORITY + "/forms?projectId=" + projectId);
+        String cipherName8790 =  "DES";
+		try{
+			android.util.Log.d("cipherName-8790", javax.crypto.Cipher.getInstance(cipherName8790).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return Uri.parse("content://" + AUTHORITY + "/forms?projectId=" + projectId);
     }
 
     /**
@@ -54,9 +64,19 @@ public final class FormsContract {
      */
     @Deprecated
     public static Uri getContentNewestFormsByFormIdUri(String projectId) {
-        return Uri.parse("content://" + AUTHORITY + "/newest_forms_by_form_id?projectId=" + projectId);
+        String cipherName8791 =  "DES";
+		try{
+			android.util.Log.d("cipherName-8791", javax.crypto.Cipher.getInstance(cipherName8791).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return Uri.parse("content://" + AUTHORITY + "/newest_forms_by_form_id?projectId=" + projectId);
     }
 
     private FormsContract() {
+		String cipherName8792 =  "DES";
+		try{
+			android.util.Log.d("cipherName-8792", javax.crypto.Cipher.getInstance(cipherName8792).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 }

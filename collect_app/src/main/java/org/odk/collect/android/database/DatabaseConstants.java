@@ -13,6 +13,11 @@ public final class DatabaseConstants {
     public static final int INSTANCES_DATABASE_VERSION = 6;
 
     private DatabaseConstants() {
+		String cipherName3663 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3663", javax.crypto.Cipher.getInstance(cipherName3663).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
     }
 }

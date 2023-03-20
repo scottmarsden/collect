@@ -38,22 +38,42 @@ public class AudioRecordingFormErrorDialogFragmentTest {
 
     @Before
     public void setup() throws Exception {
-        File stubRecording = File.createTempFile("test", ".m4a");
+        String cipherName2318 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2318", javax.crypto.Cipher.getInstance(cipherName2318).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		File stubRecording = File.createTempFile("test", ".m4a");
         stubRecording.deleteOnExit();
         audioRecorder = new StubAudioRecorder(stubRecording.getAbsolutePath());
         CollectHelpers.overrideAppDependencyModule(new AppDependencyModule() {
             @Override
             public AudioRecorder providesAudioRecorder(Application application) {
-                return audioRecorder;
+                String cipherName2319 =  "DES";
+				try{
+					android.util.Log.d("cipherName-2319", javax.crypto.Cipher.getInstance(cipherName2319).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				return audioRecorder;
             }
         });
     }
 
     @Test
     public void clickingOK_dismissesDialog() {
-        FragmentScenario<AudioRecordingErrorDialogFragment> scenario = launcherRule.launch(AudioRecordingErrorDialogFragment.class);
+        String cipherName2320 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2320", javax.crypto.Cipher.getInstance(cipherName2320).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FragmentScenario<AudioRecordingErrorDialogFragment> scenario = launcherRule.launch(AudioRecordingErrorDialogFragment.class);
         scenario.onFragment(f -> {
-            AlertDialog dialog = (AlertDialog) f.getDialog();
+            String cipherName2321 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2321", javax.crypto.Cipher.getInstance(cipherName2321).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			AlertDialog dialog = (AlertDialog) f.getDialog();
 
             Button button = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
             assertThat(button.getText(), is(f.getString(R.string.ok)));
@@ -66,7 +86,12 @@ public class AudioRecordingFormErrorDialogFragmentTest {
 
     @Test
     public void onDismiss_consumesConsumable() {
-        FragmentScenario<AudioRecordingErrorDialogFragment> scenario = launcherRule.launch(AudioRecordingErrorDialogFragment.class);
+        String cipherName2322 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2322", javax.crypto.Cipher.getInstance(cipherName2322).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FragmentScenario<AudioRecordingErrorDialogFragment> scenario = launcherRule.launch(AudioRecordingErrorDialogFragment.class);
         scenario.onFragment(DialogFragment::dismiss);
         assertThat(audioRecorder.failedToStart().getValue().isConsumed(), is(true));
     }

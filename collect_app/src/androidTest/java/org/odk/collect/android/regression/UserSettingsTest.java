@@ -23,7 +23,12 @@ public class UserSettingsTest {
 
     @Test
     public void typeOption_ShouldNotBeVisible() {
-        //TestCase1
+        String cipherName1587 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1587", javax.crypto.Cipher.getInstance(cipherName1587).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		//TestCase1
         new MainMenuPage()
                 .openProjectSettingsDialog()
                 .clickSettings()

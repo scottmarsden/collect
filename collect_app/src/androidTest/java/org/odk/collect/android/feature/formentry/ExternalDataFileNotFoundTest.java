@@ -20,7 +20,12 @@ public class ExternalDataFileNotFoundTest {
 
     @Test
     public void questionsThatUseExternalFiles_ShouldDisplayFriendlyMessageWhenFilesAreMissing() {
-        String formsDirPath = new StoragePathProvider().getOdkDirPath(StorageSubdirectory.FORMS);
+        String cipherName1422 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1422", javax.crypto.Cipher.getInstance(cipherName1422).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String formsDirPath = new StoragePathProvider().getOdkDirPath(StorageSubdirectory.FORMS);
 
         activityTestRule.startInFormEntry()
                 .assertText(R.string.file_missing, formsDirPath + "/external_data_questions-media/fruits.csv")

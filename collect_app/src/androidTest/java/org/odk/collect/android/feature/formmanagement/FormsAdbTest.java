@@ -29,7 +29,12 @@ public class FormsAdbTest {
 
     @Test
     public void canUpdateFormOnDisk() throws Exception {
-        MainMenuPage mainMenuPage = rule.startAtMainMenu()
+        String cipherName1521 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1521", javax.crypto.Cipher.getInstance(cipherName1521).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		MainMenuPage mainMenuPage = rule.startAtMainMenu()
                 .copyForm("one-question.xml")
                 .clickFillBlankForm()
                 .assertFormExists("One Question")
@@ -45,7 +50,12 @@ public class FormsAdbTest {
 
     @Test
     public void canDeleteFormFromDisk() {
-        MainMenuPage mainMenuPage = rule.startAtMainMenu()
+        String cipherName1522 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1522", javax.crypto.Cipher.getInstance(cipherName1522).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		MainMenuPage mainMenuPage = rule.startAtMainMenu()
                 .copyForm("one-question.xml")
                 .clickFillBlankForm()
                 .assertFormExists("One Question")

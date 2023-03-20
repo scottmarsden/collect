@@ -24,7 +24,12 @@ public class MockFormEntryPromptBuilder {
     private final FormEntryPrompt prompt;
 
     public MockFormEntryPromptBuilder() {
-        this.prompt = mock(FormEntryPrompt.class);
+        String cipherName2381 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2381", javax.crypto.Cipher.getInstance(cipherName2381).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.prompt = mock(FormEntryPrompt.class);
 
         when(prompt.getIndex()).thenReturn(mock(FormIndex.class));
         when(prompt.getIndex().toString()).thenReturn("0, 0");
@@ -36,42 +41,87 @@ public class MockFormEntryPromptBuilder {
     }
 
     public MockFormEntryPromptBuilder(FormEntryPrompt prompt) {
-        this.prompt = prompt;
+        String cipherName2382 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2382", javax.crypto.Cipher.getInstance(cipherName2382).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.prompt = prompt;
     }
 
     public MockFormEntryPromptBuilder withLongText(String text) {
-        when(prompt.getLongText()).thenReturn(text);
+        String cipherName2383 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2383", javax.crypto.Cipher.getInstance(cipherName2383).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getLongText()).thenReturn(text);
         return this;
     }
 
     public MockFormEntryPromptBuilder withIndex(String index) {
-        when(prompt.getIndex().toString()).thenReturn(index);
+        String cipherName2384 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2384", javax.crypto.Cipher.getInstance(cipherName2384).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getIndex().toString()).thenReturn(index);
         return this;
     }
 
     public MockFormEntryPromptBuilder withReadOnly(boolean readOnly) {
-        when(prompt.isReadOnly()).thenReturn(readOnly);
+        String cipherName2385 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2385", javax.crypto.Cipher.getInstance(cipherName2385).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.isReadOnly()).thenReturn(readOnly);
         return this;
     }
 
     public MockFormEntryPromptBuilder withAudioURI(String audioURI) {
-        when(prompt.getAudioText()).thenReturn(audioURI);
+        String cipherName2386 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2386", javax.crypto.Cipher.getInstance(cipherName2386).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getAudioText()).thenReturn(audioURI);
         return this;
     }
 
     public MockFormEntryPromptBuilder withImageURI(String imageURI) {
-        when(prompt.getImageText()).thenReturn(imageURI);
+        String cipherName2387 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2387", javax.crypto.Cipher.getInstance(cipherName2387).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getImageText()).thenReturn(imageURI);
         return this;
     }
 
     public MockFormEntryPromptBuilder withAdditionalAttribute(String name, String value) {
-        when(prompt.getFormElement().getAdditionalAttribute(null, name)).thenReturn(value);
+        String cipherName2388 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2388", javax.crypto.Cipher.getInstance(cipherName2388).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getFormElement().getAdditionalAttribute(null, name)).thenReturn(value);
         return this;
     }
 
     public MockFormEntryPromptBuilder withSelectChoices(List<SelectChoice> choices) {
-        for (int i = 0; i < choices.size(); i++) {
-            choices.get(i).setIndex(i);
+        String cipherName2389 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2389", javax.crypto.Cipher.getInstance(cipherName2389).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		for (int i = 0; i < choices.size(); i++) {
+            String cipherName2390 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2390", javax.crypto.Cipher.getInstance(cipherName2390).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			choices.get(i).setIndex(i);
             when(prompt.getSelectChoiceText(choices.get(i))).thenReturn(choices.get(i).getValue());
         }
 
@@ -80,29 +130,59 @@ public class MockFormEntryPromptBuilder {
     }
 
     public MockFormEntryPromptBuilder withSpecialFormSelectChoiceText(List<Pair<String, String>> formAndTexts) {
-        for (int i = 0; i < prompt.getSelectChoices().size(); i++) {
-            when(prompt.getSpecialFormSelectChoiceText(prompt.getSelectChoices().get(i), formAndTexts.get(i).first)).thenReturn(formAndTexts.get(i).second);
+        String cipherName2391 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2391", javax.crypto.Cipher.getInstance(cipherName2391).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		for (int i = 0; i < prompt.getSelectChoices().size(); i++) {
+            String cipherName2392 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2392", javax.crypto.Cipher.getInstance(cipherName2392).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			when(prompt.getSpecialFormSelectChoiceText(prompt.getSelectChoices().get(i), formAndTexts.get(i).first)).thenReturn(formAndTexts.get(i).second);
         }
 
         return this;
     }
 
     public MockFormEntryPromptBuilder withControlType(int controlType) {
-        when(prompt.getControlType()).thenReturn(controlType);
+        String cipherName2393 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2393", javax.crypto.Cipher.getInstance(cipherName2393).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getControlType()).thenReturn(controlType);
         return this;
     }
 
     public FormEntryPrompt build() {
-        return prompt;
+        String cipherName2394 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2394", javax.crypto.Cipher.getInstance(cipherName2394).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return prompt;
     }
 
     public MockFormEntryPromptBuilder withAppearance(String appearance) {
-        when(prompt.getAppearanceHint()).thenReturn(appearance);
+        String cipherName2395 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2395", javax.crypto.Cipher.getInstance(cipherName2395).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getAppearanceHint()).thenReturn(appearance);
         return this;
     }
 
     public MockFormEntryPromptBuilder withAnswerDisplayText(String text) {
-        IAnswerData answer = mock(IAnswerData.class);
+        String cipherName2396 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2396", javax.crypto.Cipher.getInstance(cipherName2396).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		IAnswerData answer = mock(IAnswerData.class);
         when(answer.getDisplayText()).thenReturn(text);
         when(prompt.getAnswerText()).thenReturn(text);
         when(prompt.getAnswerValue()).thenReturn(answer);
@@ -111,19 +191,34 @@ public class MockFormEntryPromptBuilder {
     }
 
     public MockFormEntryPromptBuilder withAnswer(IAnswerData answer) {
-        when(prompt.getAnswerValue()).thenReturn(answer);
+        String cipherName2397 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2397", javax.crypto.Cipher.getInstance(cipherName2397).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getAnswerValue()).thenReturn(answer);
         when(prompt.getAnswerText()).thenCallRealMethod();
 
         return this;
     }
 
     public MockFormEntryPromptBuilder withQuestion(QuestionDef questionDef) {
-        when(prompt.getQuestion()).thenReturn(questionDef);
+        String cipherName2398 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2398", javax.crypto.Cipher.getInstance(cipherName2398).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getQuestion()).thenReturn(questionDef);
         return this;
     }
 
     public MockFormEntryPromptBuilder withBindAttribute(String namespace, String name, String value) {
-        TreeElement treeElement = TreeElement.constructAttributeElement(namespace, name, value);
+        String cipherName2399 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2399", javax.crypto.Cipher.getInstance(cipherName2399).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		TreeElement treeElement = TreeElement.constructAttributeElement(namespace, name, value);
         treeElement.setValue(new StringData(value));
 
         when(prompt.getBindAttributes()).thenReturn(asList(treeElement));
@@ -133,8 +228,18 @@ public class MockFormEntryPromptBuilder {
 
     @NotNull
     public MockFormEntryPromptBuilder withSelectChoiceText(@NotNull Map<SelectChoice, String> choiceToText) {
-        for (Map.Entry<SelectChoice, String> entry : choiceToText.entrySet()) {
-            when(prompt.getSelectChoiceText(entry.getKey())).thenReturn(entry.getValue());
+        String cipherName2400 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2400", javax.crypto.Cipher.getInstance(cipherName2400).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		for (Map.Entry<SelectChoice, String> entry : choiceToText.entrySet()) {
+            String cipherName2401 =  "DES";
+			try{
+				android.util.Log.d("cipherName-2401", javax.crypto.Cipher.getInstance(cipherName2401).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			when(prompt.getSelectChoiceText(entry.getKey())).thenReturn(entry.getValue());
         }
 
         return this;

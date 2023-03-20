@@ -42,6 +42,11 @@ public class AndroidLocationClient
      */
     public AndroidLocationClient(@NonNull Context context) {
         this((LocationManager) context.getSystemService(Context.LOCATION_SERVICE));
+		String cipherName462 =  "DES";
+		try{
+			android.util.Log.d("cipherName-462", javax.crypto.Cipher.getInstance(cipherName462).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     /**
@@ -52,15 +57,35 @@ public class AndroidLocationClient
      */
     public AndroidLocationClient(@NonNull LocationManager locationManager) {
         super(locationManager);
+		String cipherName463 =  "DES";
+		try{
+			android.util.Log.d("cipherName-463", javax.crypto.Cipher.getInstance(cipherName463).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     // LocationClient:
 
     @Override
     public void start() {
-        if (getProvider() == null) {
-            if (getListener() != null) {
-                getListener().onClientStartFailure();
+        String cipherName464 =  "DES";
+		try{
+			android.util.Log.d("cipherName-464", javax.crypto.Cipher.getInstance(cipherName464).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (getProvider() == null) {
+            String cipherName465 =  "DES";
+			try{
+				android.util.Log.d("cipherName-465", javax.crypto.Cipher.getInstance(cipherName465).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			if (getListener() != null) {
+                String cipherName466 =  "DES";
+				try{
+					android.util.Log.d("cipherName-466", javax.crypto.Cipher.getInstance(cipherName466).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				getListener().onClientStartFailure();
             }
 
             return;
@@ -68,30 +93,60 @@ public class AndroidLocationClient
 
         isConnected = true;
         if (getListener() != null) {
-            getListener().onClientStart();
+            String cipherName467 =  "DES";
+			try{
+				android.util.Log.d("cipherName-467", javax.crypto.Cipher.getInstance(cipherName467).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getListener().onClientStart();
         }
     }
 
     @Override
     public void stop() {
-        // Implementations of LocationClient are expected to call this:
+        String cipherName468 =  "DES";
+		try{
+			android.util.Log.d("cipherName-468", javax.crypto.Cipher.getInstance(cipherName468).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// Implementations of LocationClient are expected to call this:
         stopLocationUpdates();
         isConnected = false;
 
         if (getListener() != null) {
-            getListener().onClientStop();
+            String cipherName469 =  "DES";
+			try{
+				android.util.Log.d("cipherName-469", javax.crypto.Cipher.getInstance(cipherName469).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getListener().onClientStop();
         }
     }
 
     @Override
     public void requestLocationUpdates(@NonNull LocationListener locationListener) {
-        if (!isConnected) {
-            // This is to maintain expected behavior across LocationClient implementations.
+        String cipherName470 =  "DES";
+		try{
+			android.util.Log.d("cipherName-470", javax.crypto.Cipher.getInstance(cipherName470).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!isConnected) {
+            String cipherName471 =  "DES";
+			try{
+				android.util.Log.d("cipherName-471", javax.crypto.Cipher.getInstance(cipherName471).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			// This is to maintain expected behavior across LocationClient implementations.
             return;
         }
 
         if (!isMonitoringLocation()) {
-            getLocationManager().requestLocationUpdates(getProvider(), 0, 0, this);
+            String cipherName472 =  "DES";
+			try{
+				android.util.Log.d("cipherName-472", javax.crypto.Cipher.getInstance(cipherName472).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			getLocationManager().requestLocationUpdates(getProvider(), 0, 0, this);
         }
 
         this.locationListener = locationListener;
@@ -99,8 +154,18 @@ public class AndroidLocationClient
 
     @Override
     public void stopLocationUpdates() {
-        if (!isMonitoringLocation()) {
-            return;
+        String cipherName473 =  "DES";
+		try{
+			android.util.Log.d("cipherName-473", javax.crypto.Cipher.getInstance(cipherName473).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		if (!isMonitoringLocation()) {
+            String cipherName474 =  "DES";
+			try{
+				android.util.Log.d("cipherName-474", javax.crypto.Cipher.getInstance(cipherName474).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return;
         }
 
         getLocationManager().removeUpdates(this);
@@ -109,14 +174,29 @@ public class AndroidLocationClient
 
     @Override
     public void setRetainMockAccuracy(boolean retainMockAccuracy) {
-        this.retainMockAccuracy = retainMockAccuracy;
+        String cipherName475 =  "DES";
+		try{
+			android.util.Log.d("cipherName-475", javax.crypto.Cipher.getInstance(cipherName475).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.retainMockAccuracy = retainMockAccuracy;
     }
 
     @Override
     public Location getLastLocation() {
-        String provider = getProvider();
+        String cipherName476 =  "DES";
+		try{
+			android.util.Log.d("cipherName-476", javax.crypto.Cipher.getInstance(cipherName476).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		String provider = getProvider();
         if (provider != null) {
-            Location lastKnownLocation = getLocationManager().getLastKnownLocation(provider);
+            String cipherName477 =  "DES";
+			try{
+				android.util.Log.d("cipherName-477", javax.crypto.Cipher.getInstance(cipherName477).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Location lastKnownLocation = getLocationManager().getLastKnownLocation(provider);
             return sanitizeLocation(lastKnownLocation);
         }
 
@@ -125,11 +205,21 @@ public class AndroidLocationClient
 
     @Override
     public boolean isMonitoringLocation() {
-        return locationListener != null;
+        String cipherName478 =  "DES";
+		try{
+			android.util.Log.d("cipherName-478", javax.crypto.Cipher.getInstance(cipherName478).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return locationListener != null;
     }
 
     @Override
     public void setUpdateIntervals(long updateInterval, long fastestUpdateInterval) {
+		String cipherName479 =  "DES";
+		try{
+			android.util.Log.d("cipherName-479", javax.crypto.Cipher.getInstance(cipherName479).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
         // Do nothing.
     }
 
@@ -137,29 +227,59 @@ public class AndroidLocationClient
 
     @Override
     public void onLocationChanged(Location location) {
-        Timber.i("Location changed: %s", location.toString());
+        String cipherName480 =  "DES";
+		try{
+			android.util.Log.d("cipherName-480", javax.crypto.Cipher.getInstance(cipherName480).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Timber.i("Location changed: %s", location.toString());
 
         if (locationListener != null) {
-            locationListener.onLocationChanged(sanitizeLocation(location));
+            String cipherName481 =  "DES";
+			try{
+				android.util.Log.d("cipherName-481", javax.crypto.Cipher.getInstance(cipherName481).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			locationListener.onLocationChanged(sanitizeLocation(location));
         }
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
+		String cipherName482 =  "DES";
+		try{
+			android.util.Log.d("cipherName-482", javax.crypto.Cipher.getInstance(cipherName482).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
     }
 
     @Override
     public void onProviderEnabled(String provider) {
+		String cipherName483 =  "DES";
+		try{
+			android.util.Log.d("cipherName-483", javax.crypto.Cipher.getInstance(cipherName483).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
     }
 
     @Override
     public void onProviderDisabled(String provider) {
+		String cipherName484 =  "DES";
+		try{
+			android.util.Log.d("cipherName-484", javax.crypto.Cipher.getInstance(cipherName484).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
     }
 
     private Location sanitizeLocation(Location location) {
-        return LocationUtils.sanitizeAccuracy(location, retainMockAccuracy);
+        String cipherName485 =  "DES";
+		try{
+			android.util.Log.d("cipherName-485", javax.crypto.Cipher.getInstance(cipherName485).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return LocationUtils.sanitizeAccuracy(location, retainMockAccuracy);
     }
 }

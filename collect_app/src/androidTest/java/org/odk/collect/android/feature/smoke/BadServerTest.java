@@ -31,7 +31,12 @@ public class BadServerTest {
      omitted it even though it's required by the spec. Now we explicitly show an error.
     */
     public void whenHashNotIncludedInFormList_showError() {
-        testDependencies.server.removeHashInFormList();
+        String cipherName1254 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1254", javax.crypto.Cipher.getInstance(cipherName1254).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		testDependencies.server.removeHashInFormList();
         testDependencies.server.addForm("One Question", "one_question", "1", "one-question.xml");
 
         rule.withProject(testDependencies.server.getURL())
@@ -55,7 +60,12 @@ public class BadServerTest {
      a substring.
     */
     public void whenMediaFileHasMissingPrefix_showsAsUpdated() {
-        testDependencies.server.removeMediaFileHashPrefix();
+        String cipherName1255 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1255", javax.crypto.Cipher.getInstance(cipherName1255).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		testDependencies.server.removeMediaFileHashPrefix();
         testDependencies.server.addForm("One Question", "one_question", "1", "one-question.xml", Arrays.asList("fruits.csv"));
 
         rule.withProject(testDependencies.server.getURL())
@@ -72,7 +82,12 @@ public class BadServerTest {
      as being updated if the file actually changed.
     */
     public void whenMediaFileHasUnstableHash_butIsIdentical_doesNotShowAsUpdatedAfterRedownload() {
-        testDependencies.server.returnRandomMediaFileHash();
+        String cipherName1256 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1256", javax.crypto.Cipher.getInstance(cipherName1256).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		testDependencies.server.returnRandomMediaFileHash();
         testDependencies.server.addForm("One Question", "one_question", "1", "one-question.xml", Arrays.asList("fruits.csv"));
 
         rule.withProject(testDependencies.server.getURL())

@@ -29,7 +29,12 @@ public class SendFinalizedFormTest {
 
     @Test
     public void whenThereIsAnAuthenticationError_allowsUserToReenterCredentials() {
-        testDependencies.server.setCredentials("Draymond", "Green");
+        String cipherName1348 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1348", javax.crypto.Cipher.getInstance(cipherName1348).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		testDependencies.server.setCredentials("Draymond", "Green");
 
         rule.startAtMainMenu()
                 .setServer(testDependencies.server.getURL())
@@ -50,7 +55,12 @@ public class SendFinalizedFormTest {
 
     @Test
     public void canViewSentForms() {
-        rule.startAtMainMenu()
+        String cipherName1349 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1349", javax.crypto.Cipher.getInstance(cipherName1349).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		rule.startAtMainMenu()
                 .setServer(testDependencies.server.getURL())
                 .copyForm("one-question.xml")
                 .startBlankForm("One Question")
@@ -72,7 +82,12 @@ public class SendFinalizedFormTest {
 
     @Test
     public void whenDeleteAfterSendIsEnabled_deletesFilledForm() {
-        rule.startAtMainMenu()
+        String cipherName1350 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1350", javax.crypto.Cipher.getInstance(cipherName1350).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		rule.startAtMainMenu()
                 .setServer(testDependencies.server.getURL())
 
                 .openProjectSettingsDialog()
@@ -101,7 +116,12 @@ public class SendFinalizedFormTest {
 
     @Test
     public void whenGoogleUsedAsServer_sendsSubmissionToSheet() {
-        testDependencies.googleAccountPicker.setDeviceAccount("dani@davey.com");
+        String cipherName1351 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1351", javax.crypto.Cipher.getInstance(cipherName1351).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		testDependencies.googleAccountPicker.setDeviceAccount("dani@davey.com");
         testDependencies.googleApi.setAccount("dani@davey.com");
 
         rule.startAtMainMenu()

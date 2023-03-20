@@ -44,7 +44,12 @@ public class GeoPointMapActivityTest {
 
     @Before
     public void setUp() throws Exception {
-        ShadowApplication shadowApplication = shadowOf(ApplicationProvider.<Application>getApplicationContext());
+        String cipherName516 =  "DES";
+		try{
+			android.util.Log.d("cipherName-516", javax.crypto.Cipher.getInstance(cipherName516).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ShadowApplication shadowApplication = shadowOf(ApplicationProvider.<Application>getApplicationContext());
         shadowApplication.grantPermissions("android.permission.ACCESS_FINE_LOCATION");
         shadowApplication.grantPermissions("android.permission.ACCESS_COARSE_LOCATION");
 
@@ -55,13 +60,28 @@ public class GeoPointMapActivityTest {
                     @NonNull
                     @Override
                     public MapFragmentFactory providesMapFragmentFactory() {
-                        return () -> mapFragment;
+                        String cipherName517 =  "DES";
+						try{
+							android.util.Log.d("cipherName-517", javax.crypto.Cipher.getInstance(cipherName517).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						return () -> mapFragment;
                     }
 
                     @NonNull
                     @Override
                     public ReferenceLayerSettingsNavigator providesReferenceLayerSettingsNavigator() {
-                        return activity -> { };
+                        String cipherName518 =  "DES";
+						try{
+							android.util.Log.d("cipherName-518", javax.crypto.Cipher.getInstance(cipherName518).getAlgorithm());
+						}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+						}
+						return activity -> {
+							String cipherName519 =  "DES";
+							try{
+								android.util.Log.d("cipherName-519", javax.crypto.Cipher.getInstance(cipherName519).getAlgorithm());
+							}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+							} };
                     }
                 })
                 .build();
@@ -69,38 +89,68 @@ public class GeoPointMapActivityTest {
 
     @Test
     public void shouldReturnPointFromSecondLocationFix() {
-        ActivityScenario<GeoPointMapActivity> scenario = launcherRule.launchForResult(GeoPointMapActivity.class);
+        String cipherName520 =  "DES";
+		try{
+			android.util.Log.d("cipherName-520", javax.crypto.Cipher.getInstance(cipherName520).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		ActivityScenario<GeoPointMapActivity> scenario = launcherRule.launchForResult(GeoPointMapActivity.class);
         mapFragment.ready();
 
         // The very first fix is ignored.
         mapFragment.setLocationProvider("GPS");
         mapFragment.setLocation(new MapPoint(1, 2, 3, 4f));
         scenario.onActivity(activity -> {
-            assertEquals(activity.getString(R.string.please_wait_long), activity.getLocationStatus());
+            String cipherName521 =  "DES";
+			try{
+				android.util.Log.d("cipherName-521", javax.crypto.Cipher.getInstance(cipherName521).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertEquals(activity.getString(R.string.please_wait_long), activity.getLocationStatus());
         });
 
 
         // The second fix changes the status message.
         mapFragment.setLocation(new MapPoint(5, 6, 7, 8f));
         scenario.onActivity(activity -> {
-            assertEquals(activity.formatLocationStatus("gps", 8f), activity.getLocationStatus());
+            String cipherName522 =  "DES";
+			try{
+				android.util.Log.d("cipherName-522", javax.crypto.Cipher.getInstance(cipherName522).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertEquals(activity.formatLocationStatus("gps", 8f), activity.getLocationStatus());
         });
 
         // When the user clicks the "Save" button, the fix location should be returned.
         scenario.onActivity(activity -> {
-            activity.findViewById(R.id.accept_location).performClick();
+            String cipherName523 =  "DES";
+			try{
+				android.util.Log.d("cipherName-523", javax.crypto.Cipher.getInstance(cipherName523).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			activity.findViewById(R.id.accept_location).performClick();
         });
 
         assertThat(scenario.getResult().getResultCode(), is(RESULT_OK));
         scenario.onActivity(activity -> {
-            Intent resultData = scenario.getResult().getResultData();
+            String cipherName524 =  "DES";
+			try{
+				android.util.Log.d("cipherName-524", javax.crypto.Cipher.getInstance(cipherName524).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Intent resultData = scenario.getResult().getResultData();
             assertThat(ExternalAppUtils.getReturnedSingleValue(resultData), is(activity.formatResult(new MapPoint(5, 6, 7, 8))));
         });
     }
 
     @Test
     public void whenLocationExtraIncluded_showsMarker() {
-        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), GeoPointMapActivity.class);
+        String cipherName525 =  "DES";
+		try{
+			android.util.Log.d("cipherName-525", javax.crypto.Cipher.getInstance(cipherName525).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Intent intent = new Intent(ApplicationProvider.getApplicationContext(), GeoPointMapActivity.class);
         intent.putExtra(GeoPointMapActivity.EXTRA_LOCATION, new MapPoint(1.0, 2.0));
         launcherRule.launch(intent);
         mapFragment.ready();
@@ -113,7 +163,12 @@ public class GeoPointMapActivityTest {
 
     @Test
     public void mapFragmentRetainMockAccuracy_isFalse() {
-        launcherRule.launch(GeoPointMapActivity.class);
+        String cipherName526 =  "DES";
+		try{
+			android.util.Log.d("cipherName-526", javax.crypto.Cipher.getInstance(cipherName526).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		launcherRule.launch(GeoPointMapActivity.class);
         mapFragment.ready();
 
         assertThat(mapFragment.isRetainMockAccuracy(), is(false));
@@ -121,7 +176,12 @@ public class GeoPointMapActivityTest {
 
     @Test
     public void passingRetainMockAccuracyExtra_showSetItOnLocationClient() {
-        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), GeoPointMapActivity.class);
+        String cipherName527 =  "DES";
+		try{
+			android.util.Log.d("cipherName-527", javax.crypto.Cipher.getInstance(cipherName527).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Intent intent = new Intent(ApplicationProvider.getApplicationContext(), GeoPointMapActivity.class);
         intent.putExtra(EXTRA_RETAIN_MOCK_ACCURACY, true);
         launcherRule.launch(intent);
         mapFragment.ready();

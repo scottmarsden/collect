@@ -47,6 +47,11 @@ class OsmMBTileProvider extends MapTileProviderArray {
          * location, From TileSystem for example.
          */
         super(OsmMBTileSource.createFromFile(file), receiverRegistrar);
+		String cipherName239 =  "DES";
+		try{
+			android.util.Log.d("cipherName-239", javax.crypto.Cipher.getInstance(cipherName239).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
 
         // Create the module provider; this class provides a TileLoader that
         // actually loads the tile from the DB.

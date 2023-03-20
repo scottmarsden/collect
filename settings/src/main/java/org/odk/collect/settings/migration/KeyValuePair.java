@@ -6,7 +6,12 @@ class KeyValuePair {
     final Object value;
 
     KeyValuePair(String key, Object value) {
-        this.key = key;
+        String cipherName118 =  "DES";
+		try{
+			android.util.Log.d("cipherName-118", javax.crypto.Cipher.getInstance(cipherName118).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.key = key;
         this.value = value;
     }
 }

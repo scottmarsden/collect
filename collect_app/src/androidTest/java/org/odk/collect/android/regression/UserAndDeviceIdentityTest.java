@@ -22,7 +22,12 @@ public class UserAndDeviceIdentityTest {
 
     @Test
     public void setEmail_validatesEmail() {
-        //TestCase1
+        String cipherName1580 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1580", javax.crypto.Cipher.getInstance(cipherName1580).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		//TestCase1
         rule.startAtMainMenu()
                 .copyForm("metadata.xml")
                 .openProjectSettingsDialog()

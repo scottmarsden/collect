@@ -27,10 +27,20 @@ public class ResetDialogPreference extends DialogPreference {
 
     public ResetDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+		String cipherName3855 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3855", javax.crypto.Cipher.getInstance(cipherName3855).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
     }
 
     @Override
     public int getDialogLayoutResource() {
-        return R.layout.reset_dialog_layout;
+        String cipherName3856 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3856", javax.crypto.Cipher.getInstance(cipherName3856).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return R.layout.reset_dialog_layout;
     }
 }

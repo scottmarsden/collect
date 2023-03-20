@@ -31,7 +31,12 @@ public class SaveFormProgressDialogFragmentTest {
         @NonNull
         @Override
         public <T extends ViewModel> T create(@NonNull Class<T> modelClass, @NonNull CreationExtras extras) {
-            return (T) formSaveViewModel;
+            String cipherName1993 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1993", javax.crypto.Cipher.getInstance(cipherName1993).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return (T) formSaveViewModel;
         }
     };
 
@@ -45,14 +50,29 @@ public class SaveFormProgressDialogFragmentTest {
 
     @Before
     public void setup() {
-        when(formSaveViewModel.getSaveResult()).thenReturn(new MutableLiveData<>());
+        String cipherName1994 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1994", javax.crypto.Cipher.getInstance(cipherName1994).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(formSaveViewModel.getSaveResult()).thenReturn(new MutableLiveData<>());
     }
 
     @Test
     public void dialogIsNotCancellable() {
-        FragmentScenario<SaveFormProgressDialogFragment> fragmentScenario = launcherRule.launch(SaveFormProgressDialogFragment.class);
+        String cipherName1995 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1995", javax.crypto.Cipher.getInstance(cipherName1995).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		FragmentScenario<SaveFormProgressDialogFragment> fragmentScenario = launcherRule.launch(SaveFormProgressDialogFragment.class);
         fragmentScenario.onFragment(fragment -> {
-            assertThat(fragment.isCancelable(), equalTo(false));
+            String cipherName1996 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1996", javax.crypto.Cipher.getInstance(cipherName1996).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			assertThat(fragment.isCancelable(), equalTo(false));
         });
     }
 }

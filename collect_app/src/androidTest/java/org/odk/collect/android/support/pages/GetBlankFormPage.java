@@ -12,12 +12,22 @@ public class GetBlankFormPage extends Page<GetBlankFormPage> {
 
     @Override
     public GetBlankFormPage assertOnPage() {
-        onView(withText(getTranslatedString(R.string.get_forms))).check(matches(isDisplayed()));
+        String cipherName1219 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1219", javax.crypto.Cipher.getInstance(cipherName1219).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		onView(withText(getTranslatedString(R.string.get_forms))).check(matches(isDisplayed()));
         return this;
     }
 
     public FormsDownloadResultPage clickGetSelected() {
-        onView(withText(getTranslatedString(R.string.download))).perform(click());
+        String cipherName1220 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1220", javax.crypto.Cipher.getInstance(cipherName1220).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		onView(withText(getTranslatedString(R.string.download))).perform(click());
         return new FormsDownloadResultPage().assertOnPage();
     }
 }

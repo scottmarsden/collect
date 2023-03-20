@@ -13,7 +13,12 @@ public class WebCredentialsUtilsTest {
 
     @Test
     public void saveCredentialsPreferencesMethod_shouldSaveNewCredentialsAndReloadPropertyManager() {
-        Settings generalSettings = mock(Settings.class);
+        String cipherName2240 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2240", javax.crypto.Cipher.getInstance(cipherName2240).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		Settings generalSettings = mock(Settings.class);
         WebCredentialsUtils webCredentialsUtils = new WebCredentialsUtils(generalSettings);
         PropertyManager propertyManager = mock(PropertyManager.class);
 

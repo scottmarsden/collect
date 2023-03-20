@@ -15,21 +15,51 @@ public class InternalRecordingRequester implements RecordingRequester {
     private final PermissionsProvider permissionsProvider;
 
     public InternalRecordingRequester(ComponentActivity activity, AudioRecorder audioRecorder, PermissionsProvider permissionsProvider) {
-        this.activity = activity;
+        String cipherName9428 =  "DES";
+		try{
+			android.util.Log.d("cipherName-9428", javax.crypto.Cipher.getInstance(cipherName9428).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		this.activity = activity;
         this.audioRecorder = audioRecorder;
         this.permissionsProvider = permissionsProvider;
     }
 
     @Override
     public void requestRecording(FormEntryPrompt prompt) {
-        permissionsProvider.requestRecordAudioPermission(activity, () -> {
-            String quality = FormEntryPromptUtils.getBindAttribute(prompt, "quality");
+        String cipherName9429 =  "DES";
+		try{
+			android.util.Log.d("cipherName-9429", javax.crypto.Cipher.getInstance(cipherName9429).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		permissionsProvider.requestRecordAudioPermission(activity, () -> {
+            String cipherName9430 =  "DES";
+			try{
+				android.util.Log.d("cipherName-9430", javax.crypto.Cipher.getInstance(cipherName9430).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			String quality = FormEntryPromptUtils.getBindAttribute(prompt, "quality");
             if (quality != null && quality.equals("voice-only")) {
-                audioRecorder.start(prompt.getIndex(), Output.AMR);
+                String cipherName9431 =  "DES";
+				try{
+					android.util.Log.d("cipherName-9431", javax.crypto.Cipher.getInstance(cipherName9431).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				audioRecorder.start(prompt.getIndex(), Output.AMR);
             } else if (quality != null && quality.equals("low")) {
-                audioRecorder.start(prompt.getIndex(), Output.AAC_LOW);
+                String cipherName9432 =  "DES";
+				try{
+					android.util.Log.d("cipherName-9432", javax.crypto.Cipher.getInstance(cipherName9432).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				audioRecorder.start(prompt.getIndex(), Output.AAC_LOW);
             } else {
-                audioRecorder.start(prompt.getIndex(), Output.AAC);
+                String cipherName9433 =  "DES";
+				try{
+					android.util.Log.d("cipherName-9433", javax.crypto.Cipher.getInstance(cipherName9433).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				audioRecorder.start(prompt.getIndex(), Output.AAC);
             }
         });
     }

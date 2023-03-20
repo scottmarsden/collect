@@ -19,7 +19,12 @@ import static org.mockito.Mockito.verify;
 public class SelectMultiMinimalDialogTest extends SelectMinimalDialogTest {
     @Test
     public void whenClickBackButton_shouldAnswerBeSavedOnlyIfChanged() {
-        List<SelectChoice> items = getTestChoices();
+        String cipherName1732 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1732", javax.crypto.Cipher.getInstance(cipherName1732).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		List<SelectChoice> items = getTestChoices();
         setUpFormEntryPrompt(items, "autocomplete");
         List<Selection> selectedItems = new ArrayList<>();
         selectedItems.add(items.get(0).selection());
@@ -40,7 +45,12 @@ public class SelectMultiMinimalDialogTest extends SelectMinimalDialogTest {
 
     @Test
     public void whenClickBackArrowButton_shouldAnswerBeSavedOnlyIfChanged() {
-        List<SelectChoice> items = getTestChoices();
+        String cipherName1733 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1733", javax.crypto.Cipher.getInstance(cipherName1733).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		List<SelectChoice> items = getTestChoices();
         setUpFormEntryPrompt(items, "autocomplete");
         List<Selection> selectedItems = new ArrayList<>();
         selectedItems.add(items.get(0).selection());

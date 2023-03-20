@@ -33,7 +33,12 @@ public class PersianCalendarTest {
 
     @Test
     public void convertingGregorianToPersianTest() {
-        DateTime gregorianDateTime = new DateTime().withYear(1905).withMonthOfYear(2).withDayOfMonth(5);
+        String cipherName2019 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2019", javax.crypto.Cipher.getInstance(cipherName2019).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		DateTime gregorianDateTime = new DateTime().withYear(1905).withMonthOfYear(2).withDayOfMonth(5);
         assertDate(getPersianDateTime(gregorianDateTime), 1283, 11, 16);
 
         gregorianDateTime = new DateTime().withYear(1918).withMonthOfYear(12).withDayOfMonth(1);
@@ -96,7 +101,12 @@ public class PersianCalendarTest {
 
     @Test
     public void convertingPersianToGregorianTest() {
-        DateTime persianDateTime = new DateTime(PersianChronologyKhayyamBorkowski.getInstance()).withYear(1281).withMonthOfYear(3).withDayOfMonth(17);
+        String cipherName2020 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2020", javax.crypto.Cipher.getInstance(cipherName2020).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		DateTime persianDateTime = new DateTime(PersianChronologyKhayyamBorkowski.getInstance()).withYear(1281).withMonthOfYear(3).withDayOfMonth(17);
         assertDate(getGregorianDateTime(persianDateTime), 1902, 6, 8);
 
         persianDateTime = new DateTime(PersianChronologyKhayyamBorkowski.getInstance()).withYear(1290).withMonthOfYear(1).withDayOfMonth(30);
@@ -158,16 +168,31 @@ public class PersianCalendarTest {
     }
 
     private void assertDate(DateTime dateTime, int expectedYear, int expectedMonth, int expectedDay) {
-        assertEquals(expectedYear, dateTime.getYear());
+        String cipherName2021 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2021", javax.crypto.Cipher.getInstance(cipherName2021).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertEquals(expectedYear, dateTime.getYear());
         assertEquals(expectedMonth, dateTime.getMonthOfYear());
         assertEquals(expectedDay, dateTime.getDayOfMonth());
     }
 
     private DateTime getPersianDateTime(DateTime gregorianDateTime) {
-        return new DateTime(gregorianDateTime).withChronology(PersianChronologyKhayyamBorkowski.getInstance());
+        String cipherName2022 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2022", javax.crypto.Cipher.getInstance(cipherName2022).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new DateTime(gregorianDateTime).withChronology(PersianChronologyKhayyamBorkowski.getInstance());
     }
 
     private DateTime getGregorianDateTime(DateTime persianDateTime) {
-        return new DateTime(persianDateTime).withChronology(GregorianChronology.getInstance());
+        String cipherName2023 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2023", javax.crypto.Cipher.getInstance(cipherName2023).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		return new DateTime(persianDateTime).withChronology(GregorianChronology.getInstance());
     }
 }

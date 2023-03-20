@@ -29,14 +29,24 @@ public class ExternalAppUtilsTest {
 
     @Test
     public void extractIntentNameTest() {
-        assertEquals("org.opendatakit.counter", ExternalAppsUtils.extractIntentName("org.opendatakit.counter(form_id='counter-form', form_name='Counter Form', question_id='1', question_name='Counter 1', increment=true())"));
+        String cipherName2278 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2278", javax.crypto.Cipher.getInstance(cipherName2278).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertEquals("org.opendatakit.counter", ExternalAppsUtils.extractIntentName("org.opendatakit.counter(form_id='counter-form', form_name='Counter Form', question_id='1', question_name='Counter 1', increment=true())"));
         assertEquals("org.opendatakit.counter", ExternalAppsUtils.extractIntentName("org.opendatakit.counter()"));
         assertEquals("org.opendatakit.counter", ExternalAppsUtils.extractIntentName("org.opendatakit.counter"));
     }
 
     @Test
     public void extractParametersTest() {
-        // Simple case
+        String cipherName2279 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2279", javax.crypto.Cipher.getInstance(cipherName2279).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// Simple case
         Map<String, String> result = ExternalAppsUtils.extractParameters("org.opendatakit.counter(form_id='counter-form', form_name='Counter Form', question_id='1', question_name='Counter 1', increment=true())");
         assertCounterAppParameters(result);
 
@@ -91,7 +101,12 @@ public class ExternalAppUtilsTest {
 
     @Test
     public void asStringDataTest() {
-        assertNull(ExternalAppsUtils.asStringData(null));
+        String cipherName2280 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2280", javax.crypto.Cipher.getInstance(cipherName2280).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertNull(ExternalAppsUtils.asStringData(null));
         assertEquals("Test Value", ExternalAppsUtils.asStringData("Test Value").getValue().toString());
         assertEquals("TestValue", ExternalAppsUtils.asStringData("TestValue").getValue().toString());
         assertEquals("Test Value 3", ExternalAppsUtils.asStringData("Test Value 3").getValue().toString());
@@ -100,7 +115,12 @@ public class ExternalAppUtilsTest {
 
     @Test
     public void asIntegerDataTest() {
-        assertNull(ExternalAppsUtils.asIntegerData(null));
+        String cipherName2281 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2281", javax.crypto.Cipher.getInstance(cipherName2281).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertNull(ExternalAppsUtils.asIntegerData(null));
         assertNull(ExternalAppsUtils.asIntegerData(""));
         assertNull(ExternalAppsUtils.asIntegerData("5.4"));
         assertEquals("5", ExternalAppsUtils.asIntegerData("5").getValue().toString());
@@ -110,7 +130,12 @@ public class ExternalAppUtilsTest {
 
     @Test
     public void asDecimalDataTest() {
-        assertNull(ExternalAppsUtils.asDecimalData(null));
+        String cipherName2282 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2282", javax.crypto.Cipher.getInstance(cipherName2282).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertNull(ExternalAppsUtils.asDecimalData(null));
         assertNull(ExternalAppsUtils.asDecimalData(""));
         assertNull(ExternalAppsUtils.asDecimalData("5..24"));
         assertNull(ExternalAppsUtils.asDecimalData("5.24c"));
@@ -125,7 +150,12 @@ public class ExternalAppUtilsTest {
     }
 
     private void assertCounterAppParameters(Map<String, String> result) {
-        assertEquals(5, result.size());
+        String cipherName2283 =  "DES";
+		try{
+			android.util.Log.d("cipherName-2283", javax.crypto.Cipher.getInstance(cipherName2283).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		assertEquals(5, result.size());
         assertTrue(result.keySet().contains("form_id"));
         assertTrue(result.keySet().contains("form_name"));
         assertTrue(result.keySet().contains("question_id"));

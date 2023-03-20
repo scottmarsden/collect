@@ -48,17 +48,32 @@ public class ConfigureWithQRCodeTest {
 
                 @Override
                 public BarcodeViewDecoder providesBarcodeViewDecoder() {
-                    return stubBarcodeViewDecoder;
+                    String cipherName1328 =  "DES";
+					try{
+						android.util.Log.d("cipherName-1328", javax.crypto.Cipher.getInstance(cipherName1328).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					return stubBarcodeViewDecoder;
                 }
 
                 @Override
                 public QRCodeGenerator providesQRCodeGenerator(Context context) {
-                    return stubQRCodeGenerator;
+                    String cipherName1329 =  "DES";
+					try{
+						android.util.Log.d("cipherName-1329", javax.crypto.Cipher.getInstance(cipherName1329).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					return stubQRCodeGenerator;
                 }
 
                 @Override
                 public Scheduler providesScheduler(WorkManager workManager) {
-                    return testScheduler;
+                    String cipherName1330 =  "DES";
+					try{
+						android.util.Log.d("cipherName-1330", javax.crypto.Cipher.getInstance(cipherName1330).getAlgorithm());
+					}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+					}
+					return testScheduler;
                 }
             }))
             .around(new RunnableRule(stubQRCodeGenerator::setup))
@@ -66,13 +81,23 @@ public class ConfigureWithQRCodeTest {
 
     @After
     public void teardown() {
-        // Clean up files created by stub generator
+        String cipherName1331 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1331", javax.crypto.Cipher.getInstance(cipherName1331).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		// Clean up files created by stub generator
         stubQRCodeGenerator.teardown();
     }
 
     @Test
     public void clickConfigureQRCode_opensScanner_andThenScanning_importsSettings() {
-        QRCodePage qrCodePage = rule.startAtMainMenu()
+        String cipherName1332 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1332", javax.crypto.Cipher.getInstance(cipherName1332).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		QRCodePage qrCodePage = rule.startAtMainMenu()
                 .openProjectSettingsDialog()
                 .clickSettings()
                 .clickProjectManagement()
@@ -93,7 +118,12 @@ public class ConfigureWithQRCodeTest {
 
     @Test
     public void clickConfigureQRCode_andClickingOnView_showsQRCode() {
-        rule.startAtMainMenu()
+        String cipherName1333 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1333", javax.crypto.Cipher.getInstance(cipherName1333).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		rule.startAtMainMenu()
                 .openProjectSettingsDialog()
                 .clickSettings()
                 .clickProjectManagement()
@@ -107,7 +137,12 @@ public class ConfigureWithQRCodeTest {
 
     @Test
     public void whenThereIsAnAdminPassword_canRemoveFromQRCode() {
-        rule.startAtMainMenu()
+        String cipherName1334 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1334", javax.crypto.Cipher.getInstance(cipherName1334).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		rule.startAtMainMenu()
                 .openProjectSettingsDialog()
                 .clickSettings()
                 .setAdminPassword("blah")
@@ -122,7 +157,12 @@ public class ConfigureWithQRCodeTest {
 
     @Test
     public void whenThereIsAServerPassword_canRemoveFromQRCode() {
-        rule.startAtMainMenu()
+        String cipherName1335 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1335", javax.crypto.Cipher.getInstance(cipherName1335).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		rule.startAtMainMenu()
                 .openProjectSettingsDialog()
                 .clickSettings()
                 .clickServerSettings()
@@ -149,36 +189,81 @@ public class ConfigureWithQRCodeTest {
 
         @Override
         public String generateQRCode(Collection<String> selectedPasswordKeys, AppConfigurationGenerator appConfigurationGenerator) {
-            return getQRCodeFilePath();
+            String cipherName1336 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1336", javax.crypto.Cipher.getInstance(cipherName1336).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return getQRCodeFilePath();
         }
 
         public void setup() {
-            Bitmap bitmap = BitmapFactory.decodeResource(
+            String cipherName1337 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1337", javax.crypto.Cipher.getInstance(cipherName1337).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			Bitmap bitmap = BitmapFactory.decodeResource(
                     getApplicationContext().getResources(),
                     getDrawableID());
             saveBitmap(bitmap);
         }
 
         public void teardown() {
-            File file = new File(getQRCodeFilePath());
+            String cipherName1338 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1338", javax.crypto.Cipher.getInstance(cipherName1338).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			File file = new File(getQRCodeFilePath());
             if (file.exists()) {
-                file.delete();
+                String cipherName1339 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1339", javax.crypto.Cipher.getInstance(cipherName1339).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				file.delete();
             }
         }
 
         String getQRCodeFilePath() {
-            return getApplicationContext().getExternalFilesDir(null) + File.separator + "test-collect-settings.png";
+            String cipherName1340 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1340", javax.crypto.Cipher.getInstance(cipherName1340).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return getApplicationContext().getExternalFilesDir(null) + File.separator + "test-collect-settings.png";
         }
 
         int getDrawableID() {
-            return CHECKER_BACKGROUND_DRAWABLE_ID;
+            String cipherName1341 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1341", javax.crypto.Cipher.getInstance(cipherName1341).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			return CHECKER_BACKGROUND_DRAWABLE_ID;
         }
 
         private void saveBitmap(Bitmap bitmap) {
-            try (FileOutputStream out = new FileOutputStream(getQRCodeFilePath())) {
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+            String cipherName1342 =  "DES";
+			try{
+				android.util.Log.d("cipherName-1342", javax.crypto.Cipher.getInstance(cipherName1342).getAlgorithm());
+			}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+			}
+			try (FileOutputStream out = new FileOutputStream(getQRCodeFilePath())) {
+                String cipherName1343 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1343", javax.crypto.Cipher.getInstance(cipherName1343).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                String cipherName1344 =  "DES";
+				try{
+					android.util.Log.d("cipherName-1344", javax.crypto.Cipher.getInstance(cipherName1344).getAlgorithm());
+				}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+				}
+				throw new RuntimeException(e);
             }
         }
     }

@@ -52,7 +52,12 @@ public class FormEntryMenuDelegateTest {
 
     @Before
     public void setup() {
-        activity = RobolectricHelpers.createThemedActivity(AppCompatActivity.class, R.style.Theme_MaterialComponents);
+        String cipherName1833 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1833", javax.crypto.Cipher.getInstance(cipherName1833).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		activity = RobolectricHelpers.createThemedActivity(AppCompatActivity.class, R.style.Theme_MaterialComponents);
         FormController formController = mock(FormController.class);
         answersProvider = mock(AnswersProvider.class);
 
@@ -81,7 +86,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onPrepare_inRepeatQuestion_showsAddRepeat() {
-        when(formEntryViewModel.canAddRepeat()).thenReturn(true);
+        String cipherName1834 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1834", javax.crypto.Cipher.getInstance(cipherName1834).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(formEntryViewModel.canAddRepeat()).thenReturn(true);
 
         RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
@@ -92,7 +102,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onPrepare_notInRepeatQuestion_hidesAddRepeat() {
-        when(formEntryViewModel.canAddRepeat()).thenReturn(false);
+        String cipherName1835 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1835", javax.crypto.Cipher.getInstance(cipherName1835).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(formEntryViewModel.canAddRepeat()).thenReturn(false);
 
         RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
@@ -103,7 +118,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onPrepare_whenFormControllerIsNull_hidesAddRepeat() {
-        when(formEntryViewModel.getFormController()).thenReturn(null);
+        String cipherName1836 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1836", javax.crypto.Cipher.getInstance(cipherName1836).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(formEntryViewModel.getFormController()).thenReturn(null);
 
         RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
@@ -114,7 +134,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onPrepare_whenFormHasBackgroundRecording_showsRecordAudio() {
-        when(formEntryViewModel.hasBackgroundRecording()).thenReturn(new MutableNonNullLiveData<>(true));
+        String cipherName1837 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1837", javax.crypto.Cipher.getInstance(cipherName1837).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(formEntryViewModel.hasBackgroundRecording()).thenReturn(new MutableNonNullLiveData<>(true));
 
         RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
@@ -125,7 +150,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onPrepare_whenBackgroundRecodingEnabled_checksRecordAudio() {
-        when(backgroundAudioViewModel.isBackgroundRecordingEnabled()).thenReturn(new MutableNonNullLiveData<>(true));
+        String cipherName1838 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1838", javax.crypto.Cipher.getInstance(cipherName1838).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(backgroundAudioViewModel.isBackgroundRecordingEnabled()).thenReturn(new MutableNonNullLiveData<>(true));
 
         RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
@@ -136,7 +166,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onPrepare_whenNotRecordingInBackground_unchecksRecordAudio() {
-        when(backgroundAudioViewModel.isBackgroundRecordingEnabled()).thenReturn(new MutableNonNullLiveData<>(false));
+        String cipherName1839 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1839", javax.crypto.Cipher.getInstance(cipherName1839).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(backgroundAudioViewModel.isBackgroundRecordingEnabled()).thenReturn(new MutableNonNullLiveData<>(false));
 
         RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
@@ -147,7 +182,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onPrepare_whenFormDoesNotHaveBackgroundRecording_hidesRecordAudio() {
-        when(formEntryViewModel.hasBackgroundRecording()).thenReturn(new MutableNonNullLiveData<>(false));
+        String cipherName1840 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1840", javax.crypto.Cipher.getInstance(cipherName1840).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(formEntryViewModel.hasBackgroundRecording()).thenReturn(new MutableNonNullLiveData<>(false));
 
         RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
@@ -158,7 +198,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenAddRepeat_callsPromptForNewRepeat() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1841 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1841", javax.crypto.Cipher.getInstance(cipherName1841).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -168,7 +213,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenAddRepeat_savesScreenAnswers() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1842 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1842", javax.crypto.Cipher.getInstance(cipherName1842).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -180,7 +230,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenAddRepeat_whenRecording_showsWarning() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1843 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1843", javax.crypto.Cipher.getInstance(cipherName1843).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -196,7 +251,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenAddRepeat_whenRecordingInTheBackground_doesNotShowWarning() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1844 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1844", javax.crypto.Cipher.getInstance(cipherName1844).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -212,7 +272,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenPreferences_startsPreferencesActivityWithChangeSettingsRequest() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1845 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1845", javax.crypto.Cipher.getInstance(cipherName1845).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -225,7 +290,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenPreferences_whenRecording_showsWarning() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1846 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1846", javax.crypto.Cipher.getInstance(cipherName1846).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -241,7 +311,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenHierarchy_startsHierarchyActivity() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1847 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1847", javax.crypto.Cipher.getInstance(cipherName1847).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -254,7 +329,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenHierarchy_savesScreenAnswers() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1848 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1848", javax.crypto.Cipher.getInstance(cipherName1848).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -266,7 +346,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenHierarchy_callsOpenHierarchy() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1849 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1849", javax.crypto.Cipher.getInstance(cipherName1849).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -276,7 +361,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenHierarchy_whenRecording_showsWarning() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1850 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1850", javax.crypto.Cipher.getInstance(cipherName1850).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -292,7 +382,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenHierarchy_whenRecordingInBackground_doesNotShowWarning() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1851 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1851", javax.crypto.Cipher.getInstance(cipherName1851).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 
@@ -308,7 +403,12 @@ public class FormEntryMenuDelegateTest {
 
     @Test
     public void onItemSelected_whenRecordAudio_whenBackgroundRecordingDisabled_enablesBackgroundRecording_andShowsDialog() {
-        RoboMenu menu = new RoboMenu();
+        String cipherName1852 =  "DES";
+		try{
+			android.util.Log.d("cipherName-1852", javax.crypto.Cipher.getInstance(cipherName1852).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		RoboMenu menu = new RoboMenu();
         formEntryMenuDelegate.onCreateOptionsMenu(Robolectric.setupActivity(FragmentActivity.class).getMenuInflater(), menu);
         formEntryMenuDelegate.onPrepareOptionsMenu(menu);
 

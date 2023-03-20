@@ -39,7 +39,12 @@ public abstract class WidgetTest {
     @Before
     @OverridingMethodsMustInvokeSuper
     public void setUp() throws Exception {
-        settingsProvider.getUnprotectedSettings().clear();
+        String cipherName3474 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3474", javax.crypto.Cipher.getInstance(cipherName3474).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		settingsProvider.getUnprotectedSettings().clear();
         settingsProvider.getUnprotectedSettings().setDefaultForAllSettingsWithoutValues();
         settingsProvider.getProtectedSettings().clear();
         settingsProvider.getProtectedSettings().setDefaultForAllSettingsWithoutValues();

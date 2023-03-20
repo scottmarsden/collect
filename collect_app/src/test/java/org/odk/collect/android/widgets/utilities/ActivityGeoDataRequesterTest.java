@@ -63,7 +63,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Before
     public void setUp() {
-        testActivity = Robolectric.buildActivity(Activity.class).get();
+        String cipherName3000 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3000", javax.crypto.Cipher.getInstance(cipherName3000).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		testActivity = Robolectric.buildActivity(Activity.class).get();
         shadowActivity = shadowOf(testActivity);
 
         prompt = promptWithAnswer(null);
@@ -79,7 +84,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenPermissionIsNotGranted_requestGeoPoint_doesNotLaunchAnyIntent() {
-        permissionsProvider.setPermissionGranted(false);
+        String cipherName3001 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3001", javax.crypto.Cipher.getInstance(cipherName3001).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		permissionsProvider.setPermissionGranted(false);
         activityGeoDataRequester.requestGeoPoint(prompt, "", waitingForDataRegistry);
 
         assertNull(shadowActivity.getNextStartedActivity());
@@ -88,7 +98,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenPermissionIsNotGranted_requestGeoShape_doesNotLaunchAnyIntent() {
-        permissionsProvider.setPermissionGranted(false);
+        String cipherName3002 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3002", javax.crypto.Cipher.getInstance(cipherName3002).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		permissionsProvider.setPermissionGranted(false);
         activityGeoDataRequester.requestGeoShape(prompt, "", waitingForDataRegistry);
 
         assertNull(shadowActivity.getNextStartedActivity());
@@ -97,7 +112,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenPermissionIsNotGranted_requestGeoTrace_doesNotLaunchAnyIntent() {
-        permissionsProvider.setPermissionGranted(false);
+        String cipherName3003 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3003", javax.crypto.Cipher.getInstance(cipherName3003).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		permissionsProvider.setPermissionGranted(false);
         activityGeoDataRequester.requestGeoTrace(prompt, "", waitingForDataRegistry);
 
         assertNull(shadowActivity.getNextStartedActivity());
@@ -106,25 +126,45 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenPermissionIGranted_requestGeoPoint_setsFormIndexWaitingForData() {
-        activityGeoDataRequester.requestGeoPoint(prompt, "", waitingForDataRegistry);
+        String cipherName3004 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3004", javax.crypto.Cipher.getInstance(cipherName3004).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		activityGeoDataRequester.requestGeoPoint(prompt, "", waitingForDataRegistry);
         assertTrue(waitingForDataRegistry.waiting.contains(formIndex));
     }
 
     @Test
     public void whenPermissionIGranted_requestGeoShape_setsFormIndexWaitingForData() {
-        activityGeoDataRequester.requestGeoShape(prompt, "", waitingForDataRegistry);
+        String cipherName3005 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3005", javax.crypto.Cipher.getInstance(cipherName3005).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		activityGeoDataRequester.requestGeoShape(prompt, "", waitingForDataRegistry);
         assertTrue(waitingForDataRegistry.waiting.contains(formIndex));
     }
 
     @Test
     public void whenPermissionIGranted_requestGeoTrace_setsFormIndexWaitingForData() {
-        activityGeoDataRequester.requestGeoTrace(prompt, "", waitingForDataRegistry);
+        String cipherName3006 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3006", javax.crypto.Cipher.getInstance(cipherName3006).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		activityGeoDataRequester.requestGeoTrace(prompt, "", waitingForDataRegistry);
         assertTrue(waitingForDataRegistry.waiting.contains(formIndex));
     }
 
     @Test
     public void requestGeoPoint_launchesCorrectIntent() {
-        activityGeoDataRequester.requestGeoPoint(prompt, answer.getDisplayText(), waitingForDataRegistry);
+        String cipherName3007 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3007", javax.crypto.Cipher.getInstance(cipherName3007).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		activityGeoDataRequester.requestGeoPoint(prompt, answer.getDisplayText(), waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
 
         assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPointActivity.class));
@@ -137,7 +177,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void requestGeoPoint_whenAnswerIsPresent_addsToIntent() {
-        activityGeoDataRequester.requestGeoPoint(prompt, "1.0 2.0 3 4", waitingForDataRegistry);
+        String cipherName3008 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3008", javax.crypto.Cipher.getInstance(cipherName3008).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		activityGeoDataRequester.requestGeoPoint(prompt, "1.0 2.0 3 4", waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
 
         assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPointActivity.class));
@@ -149,7 +194,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetHasAccuracyValue_requestGeoPoint_launchesCorrectIntent() {
-        when(questionDef.getAdditionalAttribute(null, "accuracyThreshold")).thenReturn("10");
+        String cipherName3009 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3009", javax.crypto.Cipher.getInstance(cipherName3009).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(questionDef.getAdditionalAttribute(null, "accuracyThreshold")).thenReturn("10");
 
         activityGeoDataRequester.requestGeoPoint(prompt, answer.getDisplayText(), waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
@@ -163,7 +213,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetHasInvalidAccuracyValue_requestGeoPoint_launchesCorrectIntentWithDefaultThreshold() {
-        when(questionDef.getAdditionalAttribute(null, "accuracyThreshold")).thenReturn("blah");
+        String cipherName3010 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3010", javax.crypto.Cipher.getInstance(cipherName3010).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(questionDef.getAdditionalAttribute(null, "accuracyThreshold")).thenReturn("blah");
 
         activityGeoDataRequester.requestGeoPoint(prompt, answer.getDisplayText(), waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
@@ -177,7 +232,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetHasUnacceptableAccuracyValue_requestGeoPoint_launchesCorrectIntent() {
-        when(questionDef.getAdditionalAttribute(null, "unacceptableAccuracyThreshold")).thenReturn("20");
+        String cipherName3011 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3011", javax.crypto.Cipher.getInstance(cipherName3011).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(questionDef.getAdditionalAttribute(null, "unacceptableAccuracyThreshold")).thenReturn("20");
 
         activityGeoDataRequester.requestGeoPoint(prompt, answer.getDisplayText(), waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
@@ -191,7 +251,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetHasInvalidUnacceptableAccuracyValue_requestGeoPoint_launchesCorrectIntentWithDefaultThreshold() {
-        when(questionDef.getAdditionalAttribute(null, "unacceptableAccuracyThreshold")).thenReturn("blah");
+        String cipherName3012 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3012", javax.crypto.Cipher.getInstance(cipherName3012).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(questionDef.getAdditionalAttribute(null, "unacceptableAccuracyThreshold")).thenReturn("blah");
 
         activityGeoDataRequester.requestGeoPoint(prompt, answer.getDisplayText(), waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
@@ -205,7 +270,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetHasMapsAppearance_requestGeoPoint_launchesCorrectIntent() {
-        when(prompt.getAppearanceHint()).thenReturn(Appearances.MAPS);
+        String cipherName3013 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3013", javax.crypto.Cipher.getInstance(cipherName3013).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getAppearanceHint()).thenReturn(Appearances.MAPS);
 
         activityGeoDataRequester.requestGeoPoint(prompt, "", waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
@@ -221,7 +291,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetHasMapsAppearance_andIsReadOnly_requestGeoPoint_launchesCorrectIntent() {
-        when(prompt.getAppearanceHint()).thenReturn(Appearances.MAPS);
+        String cipherName3014 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3014", javax.crypto.Cipher.getInstance(cipherName3014).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getAppearanceHint()).thenReturn(Appearances.MAPS);
 
         when(prompt.isReadOnly()).thenReturn(true);
         activityGeoDataRequester.requestGeoPoint(prompt, "", waitingForDataRegistry);
@@ -238,7 +313,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetHasPlacementMapAppearance_requestGeoPoint_launchesCorrectIntent() {
-        when(prompt.getAppearanceHint()).thenReturn(Appearances.PLACEMENT_MAP);
+        String cipherName3015 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3015", javax.crypto.Cipher.getInstance(cipherName3015).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getAppearanceHint()).thenReturn(Appearances.PLACEMENT_MAP);
 
         activityGeoDataRequester.requestGeoPoint(prompt, "", waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
@@ -254,7 +334,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void requestGeoShape_launchesCorrectIntent() {
-        activityGeoDataRequester.requestGeoShape(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
+        String cipherName3016 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3016", javax.crypto.Cipher.getInstance(cipherName3016).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		activityGeoDataRequester.requestGeoShape(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
 
         assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
@@ -273,7 +358,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetIsReadOnly_requestGeoShape_launchesCorrectIntent() {
-        when(prompt.isReadOnly()).thenReturn(true);
+        String cipherName3017 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3017", javax.crypto.Cipher.getInstance(cipherName3017).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.isReadOnly()).thenReturn(true);
         activityGeoDataRequester.requestGeoShape(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
 
@@ -286,7 +376,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void requestGeoTrace_launchesCorrectIntent() {
-        activityGeoDataRequester.requestGeoTrace(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
+        String cipherName3018 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3018", javax.crypto.Cipher.getInstance(cipherName3018).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		activityGeoDataRequester.requestGeoTrace(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
 
         assertEquals(startedIntent.getComponent(), new ComponentName(testActivity, GeoPolyActivity.class));
@@ -305,7 +400,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void whenWidgetIsReadOnly_requestGeoTrace_launchesCorrectIntent() {
-        when(prompt.isReadOnly()).thenReturn(true);
+        String cipherName3019 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3019", javax.crypto.Cipher.getInstance(cipherName3019).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.isReadOnly()).thenReturn(true);
 
         activityGeoDataRequester.requestGeoTrace(prompt, "2.0 3.0 4 5; 6.0 7.0 8 9", waitingForDataRegistry);
         Intent startedIntent = shadowActivity.getNextStartedActivity();
@@ -319,7 +419,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void requestGeoPoint_whenWidgetHasAllowMockAccuracy_addsItToIntent() {
-        when(prompt.getBindAttributes())
+        String cipherName3020 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3020", javax.crypto.Cipher.getInstance(cipherName3020).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getBindAttributes())
                 .thenReturn(asList(TreeElement.constructAttributeElement("odk", "allow-mock-accuracy", "true")));
 
         activityGeoDataRequester.requestGeoPoint(prompt, "1.0 2.0 3 4", waitingForDataRegistry);
@@ -340,7 +445,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void requestGeoShape_whenWidgetHasAllowMockAccuracy_addsItToIntent() {
-        when(prompt.getBindAttributes())
+        String cipherName3021 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3021", javax.crypto.Cipher.getInstance(cipherName3021).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getBindAttributes())
                 .thenReturn(asList(TreeElement.constructAttributeElement("odk", "allow-mock-accuracy", "true")));
 
         activityGeoDataRequester.requestGeoShape(prompt, "blah", waitingForDataRegistry);
@@ -361,7 +471,12 @@ public class ActivityGeoDataRequesterTest {
 
     @Test
     public void requestGeoTrace_whenWidgetHasAllowMockAccuracy_addsItToIntent() {
-        when(prompt.getBindAttributes())
+        String cipherName3022 =  "DES";
+		try{
+			android.util.Log.d("cipherName-3022", javax.crypto.Cipher.getInstance(cipherName3022).getAlgorithm());
+		}catch(java.security.NoSuchAlgorithmException|javax.crypto.NoSuchPaddingException aRaNDomName){
+		}
+		when(prompt.getBindAttributes())
                 .thenReturn(asList(TreeElement.constructAttributeElement("odk", "allow-mock-accuracy", "true")));
 
         activityGeoDataRequester.requestGeoTrace(prompt, "blah", waitingForDataRegistry);
